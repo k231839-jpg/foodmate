@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Food Mate — Melbourne's favourite online food delivery platform. Order from local restaurants with no service fees.">
+  <title>Food Mate — Delicious Food, Delivered To Your Door</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ═══════ NAVBAR ═══════ -->
+  <nav class="navbar navbar-expand-lg navbar-foodmate fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <i class="bi bi-egg-fried brand-icon"></i> Food Mate
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="restaurants.html">Restaurants</a></li>
+          <li class="nav-item"><a class="nav-link" href="restaurant-detail.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="track-order.html">Track Order</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">My Account</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <div class="nav-search d-none d-md-block">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" placeholder="Search restaurants or dishes..." id="navSearch">
+          </div>
+          <a href="login.html" class="btn btn-signin">Sign In</a>
+          <a href="login.html" class="btn btn-register">Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════ HERO SECTION ═══════ -->
+  <section class="hero-section" style="padding-top: 100px;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h1 class="hero-title animate-fadeInUp">
+            Delicious Food,<br>Delivered To <span class="highlight">Your Door</span>
+          </h1>
+          <p class="hero-subtitle animate-fadeInUp delay-1">
+            Explore thousands of restaurants nearby and get your favourite meals delivered fast. No service fees — same meal, same restaurant, better deal.
+          </p>
+          <div class="d-flex gap-3 animate-fadeInUp delay-2">
+            <a href="restaurants.html" class="btn btn-accent btn-lg">
+              <i class="bi bi-bag-check me-2"></i>Order Now
+            </a>
+            <a href="#how-it-works" class="btn btn-accent-outline btn-lg">
+              Learn More
+            </a>
+          </div>
+          <!-- Quick Stats -->
+          <div class="d-flex gap-4 mt-4 animate-fadeInUp delay-3">
+            <div>
+              <div style="font-size:1.5rem; font-weight:800; color:var(--accent)">500+</div>
+              <div style="font-size:0.8rem; color:var(--text-secondary)">Restaurants</div>
+            </div>
+            <div>
+              <div style="font-size:1.5rem; font-weight:800; color:var(--accent)">50K+</div>
+              <div style="font-size:0.8rem; color:var(--text-secondary)">Happy Customers</div>
+            </div>
+            <div>
+              <div style="font-size:1.5rem; font-weight:800; color:var(--accent)">4.8</div>
+              <div style="font-size:0.8rem; color:var(--text-secondary)">Average Rating</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 animate-fadeInUp delay-2">
+          <div class="hero-image-grid">
+            <div class="img-wrapper">
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=500&fit=crop" alt="Gourmet burger">
+            </div>
+            <div class="img-wrapper">
+              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=250&fit=crop" alt="Pizza">
+            </div>
+            <div class="img-wrapper">
+              <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=250&fit=crop" alt="Sushi platter">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ HOW IT WORKS ═══════ -->
+  <section class="section-padding" id="how-it-works" style="background: var(--bg-primary);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">How It Works</h2>
+        <p class="section-subtitle reveal">Order your favourite food in 3 easy steps</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal delay-1">
+          <div class="step-card">
+            <span class="step-number">1</span>
+            <div class="step-icon"><i class="bi bi-search"></i></div>
+            <h5>Browse Restaurants</h5>
+            <p>Explore hundreds of local restaurants and discover new cuisines near you.</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal delay-2">
+          <div class="step-card">
+            <span class="step-number">2</span>
+            <div class="step-icon"><i class="bi bi-cart-check"></i></div>
+            <h5>Place Your Order</h5>
+            <p>Choose your meals, customise your order, and checkout in seconds.</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal delay-3">
+          <div class="step-card">
+            <span class="step-number">3</span>
+            <div class="step-icon"><i class="bi bi-bicycle"></i></div>
+            <h5>Fast Delivery</h5>
+            <p>Track your order in real-time as our partners deliver it to your door.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FEATURED RESTAURANTS ═══════ -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="section-title reveal">Featured Restaurants</h2>
+          <p class="section-subtitle reveal mb-0">Top-rated restaurants in Melbourne</p>
+        </div>
+        <a href="restaurants.html" class="btn btn-accent-outline d-none d-md-inline-block reveal">View All <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+      <div class="row g-4" id="featuredRestaurants">
+        <!-- Filled by JS -->
+      </div>
+      <div class="text-center mt-4 d-md-none">
+        <a href="restaurants.html" class="btn btn-accent-outline">View All Restaurants</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ POPULAR DISHES ═══════ -->
+  <section class="section-padding" style="background: var(--bg-primary);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Popular Right Now</h2>
+        <p class="section-subtitle reveal">Trending dishes customers love</p>
+      </div>
+      <div class="row g-4" id="popularDishes">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PROMO BANNER ═══════ -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="promo-banner d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 reveal">
+        <div>
+          <h3>Get <span class="highlight">20% Off</span> Your First Order</h3>
+          <p class="mb-0">Use code <strong style="color:var(--accent)">FOODMATE20</strong> at checkout. Limited time offer for new customers!</p>
+        </div>
+        <a href="restaurants.html" class="btn btn-accent btn-lg flex-shrink-0" style="position:relative;">
+          Claim Offer <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ APP FEATURES ═══════ -->
+  <section class="section-padding" style="background: var(--bg-primary);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title reveal">Why Choose Food Mate?</h2>
+        <p class="section-subtitle reveal">Melbourne's favourite food delivery platform</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 col-6 reveal delay-1">
+          <div class="text-center">
+            <div class="step-icon mx-auto mb-3"><i class="bi bi-shield-check"></i></div>
+            <h6 class="fw-bold">No Service Fees</h6>
+            <p class="small" style="color:var(--text-secondary)">Save money on every order</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6 reveal delay-2">
+          <div class="text-center">
+            <div class="step-icon mx-auto mb-3"><i class="bi bi-clock-history"></i></div>
+            <h6 class="fw-bold">Fast Delivery</h6>
+            <p class="small" style="color:var(--text-secondary)">Average 30 min delivery</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6 reveal delay-3">
+          <div class="text-center">
+            <div class="step-icon mx-auto mb-3"><i class="bi bi-geo-alt"></i></div>
+            <h6 class="fw-bold">Live Tracking</h6>
+            <p class="small" style="color:var(--text-secondary)">Real-time order updates</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6 reveal delay-4">
+          <div class="text-center">
+            <div class="step-icon mx-auto mb-3"><i class="bi bi-star"></i></div>
+            <h6 class="fw-bold">Top Restaurants</h6>
+            <p class="small" style="color:var(--text-secondary)">500+ partner venues</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <h5><i class="bi bi-egg-fried" style="color:var(--accent)"></i> Food Mate</h5>
+          <p style="color:var(--text-secondary); font-size:0.9rem;">Melbourne's favourite online food delivery platform. Same meal, same restaurant, better deal. No service fees.</p>
+          <div class="social-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="track-order.html">Track Order</a></li>
+            <li><a href="dashboard.html">My Account</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Partners</h5>
+          <ul class="footer-links">
+            <li><a href="restaurant-dashboard.html">Restaurant Portal</a></li>
+            <li><a href="delivery-dashboard.html">Deliver With Us</a></li>
+            <li><a href="admin.html">Admin Panel</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5>Contact Us</h5>
+          <ul class="footer-links">
+            <li><i class="bi bi-geo-alt me-2" style="color:var(--accent)"></i> 123 Flinders Street, Melbourne VIC 3000</li>
+            <li><i class="bi bi-envelope me-2" style="color:var(--accent)"></i> support@foodmate.com.au</li>
+            <li><i class="bi bi-telephone me-2" style="color:var(--accent)"></i> +61 3 9000 1234</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; 2026 Food Mate. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Populate Featured Restaurants
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('featuredRestaurants');
+      RESTAURANTS.slice(0, 4).forEach((r, i) => {
+        container.innerHTML += `
+          <div class="col-lg-3 col-md-6 reveal delay-${i+1}">
+            <a href="restaurant-detail.html?id=${r.id}" class="text-decoration-none">
+              <div class="restaurant-card">
+                <div class="card-img-wrapper">
+                  <img src="${r.image}" alt="${r.name}" loading="lazy">
+                  <button class="fav-btn" title="Add to favorites"><i class="bi bi-heart"></i></button>
+                  <span class="delivery-badge"><i class="bi bi-clock me-1"></i>${r.deliveryTime}</span>
+                </div>
+                <div class="card-body">
+                  <h6 class="restaurant-name">${r.name}</h6>
+                  <div class="restaurant-meta">
+                    <span class="rating"><i class="bi bi-star-fill"></i> ${r.rating}</span>
+                    <span class="cuisine-tag">${r.cuisine}</span>
+                    <span>$${r.deliveryFee.toFixed(2)} delivery</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>`;
+      });
+
+      // Populate Popular Dishes
+      const dishContainer = document.getElementById('popularDishes');
+      const allDishes = RESTAURANTS.flatMap(r => r.menu.slice(0, 2).map(m => ({...m, restaurant: r.name})));
+      allDishes.slice(0, 6).forEach((dish, i) => {
+        dishContainer.innerHTML += `
+          <div class="col-lg-4 col-md-6 reveal delay-${(i%3)+1}">
+            <div class="menu-item">
+              <img src="${dish.image}" alt="${dish.name}" class="item-image">
+              <div class="item-info">
+                <div class="item-name">${dish.name}</div>
+                <div class="item-desc">${dish.desc}</div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="item-price">${formatPrice(dish.price)}</span>
+                  <button class="btn btn-accent btn-sm" onclick="Cart.addItem({id:${dish.id}, name:'${dish.name.replace(/'/g,"\\'")}', price:${dish.price}, image:'${dish.image}'})">
+                    <i class="bi bi-plus"></i> Add
+                  </button>
+                </div>
+                <small style="color:var(--text-muted)">${dish.restaurant}</small>
+              </div>
+            </div>
+          </div>`;
+      });
+
+      // Re-init scroll reveal for dynamically added elements
+      initScrollReveal();
+      initFavorites();
+    });
+  </script>
+</body>
+</html>
