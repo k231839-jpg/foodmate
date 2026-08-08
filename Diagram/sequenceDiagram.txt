@@ -1,0 +1,21 @@
+sequenceDiagram
+    actor Customer
+    participant App as Food Mate System
+    participant Payment as Payment Gateway
+    participant Restaurant
+    
+    Customer->>App: Browse Restaurants & Menus
+    App-->>Customer: Display Menus
+    Customer->>App: Add Items to Cart
+    Customer->>App: Proceed to Checkout & Pay
+    App->>Payment: Process Payment Details
+    
+    alt Payment Successful
+        Payment-->>App: Payment Confirmed
+        App->>Restaurant: Send New Order Details
+        Restaurant-->>App: Acknowledge & Accept Order
+        App-->>Customer: Order Confirmed & Estimated Time
+    else Payment Failed
+        Payment-->>App: Payment Declined
+        App-->>Customer: Display Error & Prompt Retry
+    end

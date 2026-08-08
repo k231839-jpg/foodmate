@@ -1,0 +1,19 @@
+flowchart TD
+    Customer([Customer])
+    Restaurant([Restaurant])
+    DeliveryPartner([Delivery Partner])
+    Admin([Admin])
+    
+    System((Food Mate System))
+    
+    Customer -->|Browses, Places Order, Makes Payment| System
+    System -->|Order Status, Receipts| Customer
+    
+    System -->|New Order Notifications, Payouts| Restaurant
+    Restaurant -->|Menu Updates, Order Accept/Reject| System
+    
+    System -->|Delivery Assignments| DeliveryPartner
+    DeliveryPartner -->|Real-time Location, Delivery Status| System
+    
+    Admin -->|System Configuration, Moderation| System
+    System -->|Analytics, Reports, System Logs| Admin

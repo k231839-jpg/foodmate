@@ -1,0 +1,55 @@
+classDiagram
+    class User {
+        +int id
+        +string name
+        +string email
+        +string password
+        +string phone
+        +login()
+        +logout()
+        +updateProfile()
+    }
+    class Customer {
+        +string address
+        +browseRestaurants()
+        +placeOrder()
+        +trackOrder()
+    }
+    class Restaurant {
+        +string location
+        +string hours
+        +manageMenu()
+        +acceptOrder()
+    }
+    class DeliveryPartner {
+        +string vehicleDetails
+        +acceptDelivery()
+        +updateDeliveryStatus()
+    }
+    class Admin {
+        +manageUsers()
+        +viewReports()
+    }
+    class Order {
+        +int orderId
+        +string status
+        +float totalAmount
+        +calculateTotal()
+        +updateStatus()
+    }
+    class MenuItem {
+        +int itemId
+        +string name
+        +float price
+        +bool isAvailable
+    }
+    
+    User <|-- Customer
+    User <|-- Restaurant
+    User <|-- DeliveryPartner
+    User <|-- Admin
+    
+    Customer "1" -- "*" Order : places
+    Restaurant "1" -- "*" Order : receives
+    Restaurant "1" -- "*" MenuItem : manages
+    Order "1" *-- "*" MenuItem : contains

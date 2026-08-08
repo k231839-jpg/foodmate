@@ -1,0 +1,33 @@
+flowchart LR
+    C([Customer])
+    R([Restaurant])
+    D([Delivery Partner])
+    A([Admin])
+    
+    subgraph Food Mate Platform
+        UC1(Register / Login)
+        UC2(Manage Menu & Profile)
+        UC3(Browse & Search Food)
+        UC4(Place Order & Checkout)
+        UC5(Track Delivery)
+        UC6(Accept/Reject Orders)
+        UC7(Accept Delivery Jobs)
+        UC8(Manage Users & System)
+        UC9(View Analytics & Reports)
+    end
+    
+    C --> UC1
+    C --> UC3
+    C --> UC4
+    C --> UC5
+    
+    R --> UC1
+    R --> UC2
+    R --> UC6
+    
+    D --> UC1
+    D --> UC7
+    
+    A --> UC1
+    A --> UC8
+    A --> UC9

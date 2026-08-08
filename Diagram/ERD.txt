@@ -1,0 +1,50 @@
+erDiagram
+    CUSTOMER {
+        int CustomerID PK
+        string Name
+        string Email
+        string Phone
+        string Address
+    }
+    RESTAURANT {
+        int RestaurantID PK
+        string Name
+        string Address
+        string CuisineType
+    }
+    DELIVERY_PARTNER {
+        int PartnerID PK
+        string Name
+        string Phone
+        string VehicleDetails
+    }
+    MENU_ITEM {
+        int ItemID PK
+        string Name
+        float Price
+        string Category
+    }
+    ORDER {
+        int OrderID PK
+        string Status
+        float TotalAmount
+        datetime OrderTime
+    }
+    ORDER_ITEM {
+        int OrderItemID PK
+        int Quantity
+        float Subtotal
+    }
+    PAYMENT {
+        int PaymentID PK
+        string Method
+        string Status
+    }
+
+    CUSTOMER ||--o{ ORDER : places
+    RESTAURANT ||--o{ MENU_ITEM : offers
+    RESTAURANT ||--o{ ORDER : receives
+    ORDER ||--|{ ORDER_ITEM : contains
+    MENU_ITEM ||--o{ ORDER_ITEM : "is included in"
+    DELIVERY_PARTNER ||--o{ ORDER : delivers
+    ORDER ||--o| PAYMENT : has

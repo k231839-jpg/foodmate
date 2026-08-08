@@ -1,0 +1,31 @@
+flowchart TD
+    Customer([Customer])
+    Restaurant([Restaurant])
+    Delivery([Delivery Partner])
+    
+    P1((1.0 User Registration & Auth))
+    P2((2.0 Menu & Catalog Management))
+    P3((3.0 Order Processing))
+    P4((4.0 Payment & Checkout))
+    
+    D1[(User Database)]
+    D2[(Menu Database)]
+    D3[(Order Database)]
+    
+    Customer -->|Credentials| P1
+    Restaurant -->|Credentials| P1
+    P1 <--> D1
+    
+    Restaurant -->|Add/Edit Items| P2
+    P2 <--> D2
+    Customer -->|Search & View Menus| P2
+    
+    Customer -->|Place Order Request| P3
+    P3 -->|Order Details| Restaurant
+    Restaurant -->|Update Order Status| P3
+    P3 -->|Assign Delivery| Delivery
+    Delivery -->|Update Delivery Status| P3
+    P3 <--> D3
+    
+    Customer -->|Payment Details| P4
+    P4 -->|Payment Status Confirmation| P3
