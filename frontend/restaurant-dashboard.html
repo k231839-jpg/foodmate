@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Restaurant Partner Management Dashboard on Food Mate.">
+  <title>Food Mate — Restaurant Partner Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Demo Role Simulator Bar -->
+  <div class="role-demo-bar text-center">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
+      <div class="d-flex gap-2">
+        <a href="index.html"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.html" class="active"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.html"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.html"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="brand d-flex align-items-center gap-2">
+        <i class="bi bi-shop text-warning fs-3"></i>
+        <div>
+          <div>Restaurant Portal</div>
+          <small style="font-size:0.7rem; color:#94a3b8; font-weight:normal;">Luigi's Pizzeria</small>
+        </div>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="#" class="active" onclick="showResSection('ordersSec', this)"><i class="bi bi-receipt me-2"></i>Live Orders Queue (LL FR 3.3)</a></li>
+        <li><a href="#" onclick="showResSection('menuSec', this)"><i class="bi bi-book me-2"></i>Menu Management (LL FR 3.2)</a></li>
+        <li><a href="#" onclick="showResSection('promoSec', this)"><i class="bi bi-tag me-2"></i>Promotions & Deals (LL FR 3.4)</a></li>
+        <li><a href="#" onclick="showResSection('profileSec', this)"><i class="bi bi-gear me-2"></i>Restaurant Profile (LL FR 3.1)</a></li>
+        <li class="mt-4 border-top border-secondary pt-3"><a href="index.html" class="text-danger"><i class="bi bi-box-arrow-left me-2"></i>Exit Dashboard</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="dashboard-content">
+      <!-- Top Bar -->
+      <div class="dashboard-header">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-dark d-lg-none" id="sidebarToggle"><i class="bi bi-list"></i></button>
+          <h4 class="mb-0 fw-bold" id="resHeaderTitle">Live Order Queue</h4>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <div class="form-check form-switch mb-0">
+            <input class="form-check-input" type="checkbox" id="resOnlineSwitch" checked onchange="toggleStoreStatus(this)">
+            <label class="form-check-label fw-bold text-success" for="resOnlineSwitch" id="storeStatusLabel">Accepting Orders</label>
+          </div>
+          <span class="badge bg-warning text-dark px-3 py-2 fw-bold">Commission Rate: 0%</span>
+        </div>
+      </div>
+
+      <div class="p-4">
+        
+        <!-- SECTION 1: LIVE ORDERS QUEUE -->
+        <div id="ordersSec" class="res-section">
+          <!-- Stat Counters -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-3">
+              <div class="stat-card">
+                <div class="stat-icon primary"><i class="bi bi-bell-fill"></i></div>
+                <div>
+                  <h3 class="fw-bold mb-0" id="countPending">2</h3>
+                  <small class="text-muted">Pending Orders</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="stat-card">
+                <div class="stat-icon warning"><i class="bi bi-egg-fried"></i></div>
+                <div>
+                  <h3 class="fw-bold mb-0" id="countPreparing">1</h3>
+                  <small class="text-muted">Currently Preparing</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="stat-card">
+                <div class="stat-icon success"><i class="bi bi-bicycle"></i></div>
+                <div>
+                  <h3 class="fw-bold mb-0" id="countReady">4</h3>
+                  <small class="text-muted">Ready for Pickup</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="stat-card">
+                <div class="stat-icon info"><i class="bi bi-cash-stack"></i></div>
+                <div>
+                  <h3 class="fw-bold mb-0">$340.50</h3>
+                  <small class="text-muted">Today's Revenue</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orders Table -->
+          <div class="card-dark">
+            <h5 class="fw-bold mb-3">Incoming Orders Queue</h5>
+            <div class="table-responsive">
+              <table class="table table-custom">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Items Ordered</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Actions (LL FR 3.3)</th>
+                  </tr>
+                </thead>
+                <tbody id="resOrdersTableBody">
+                  <tr>
+                    <td class="fw-bold text-primary">FM-8092</td>
+                    <td>Alex Johnson<br><small class="text-muted">350 Elizabeth St</small></td>
+                    <td>Margherita Supreme x2, Garlic Focaccia x1</td>
+                    <td class="fw-bold">$44.00</td>
+                    <td><span class="status-badge status-preparing">Preparing</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-success" onclick="updateOrderStatus('FM-8092', 'Ready for Pickup', this)">Mark Ready</button>
+                      <button class="btn btn-sm btn-outline-danger" onclick="updateOrderStatus('FM-8092', 'Rejected', this)">Reject</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold text-primary">FM-8098</td>
+                    <td>Sarah Miller<br><small class="text-muted">88 Lygon St</small></td>
+                    <td>Truffle Mushroom Pizza x1</td>
+                    <td class="fw-bold">$24.50</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-primary-custom" onclick="updateOrderStatus('FM-8098', 'Preparing', this)">Accept Order</button>
+                      <button class="btn btn-sm btn-outline-danger" onclick="updateOrderStatus('FM-8098', 'Rejected', this)">Reject</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: MENU MANAGEMENT -->
+        <div id="menuSec" class="res-section" style="display:none;">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 class="fw-bold mb-0">Menu Item Catalog & Categories (LL FR 3.2)</h5>
+            <button class="btn btn-primary-custom" onclick="showAddItemModal()"><i class="bi bi-plus-lg me-1"></i> Add New Menu Item</button>
+          </div>
+
+          <div class="row g-4" id="resMenuItemsGrid">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- SECTION 3: PROMOTIONS -->
+        <div id="promoSec" class="res-section" style="display:none;">
+          <div class="card-dark mb-4">
+            <h5 class="fw-bold mb-3">Create New Discount Promotion (LL FR 3.4)</h5>
+            <form onsubmit="handleCreateCoupon(event)" class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label-dark">Coupon Code</label>
+                <input type="text" class="form-control form-control-dark" id="couponCodeInput" placeholder="e.g. PIZZA20" required>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label-dark">Discount Percentage (%)</label>
+                <input type="number" class="form-control form-control-dark" id="couponDiscountInput" min="5" max="50" placeholder="20" required>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label-dark">Expiry Date</label>
+                <input type="date" class="form-control form-control-dark" required>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary-custom"><i class="bi bi-tag-fill me-1"></i> Launch Promotion</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card-dark">
+            <h5 class="fw-bold mb-3">Active Promotions</h5>
+            <table class="table table-custom">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Discount</th>
+                  <th>Total Uses</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold text-success">FOODMATE10</td>
+                  <td>$5.00 Flat OFF</td>
+                  <td>142 Orders</td>
+                  <td><span class="status-badge status-delivered">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SECTION 4: RESTAURANT PROFILE -->
+        <div id="profileSec" class="res-section" style="display:none;">
+          <div class="card-dark">
+            <h5 class="fw-bold mb-4 border-bottom pb-2">Manage Profile & Operational Details (LL FR 3.1)</h5>
+            <form onsubmit="handleResProfileSave(event)" class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-dark">Restaurant Name</label>
+                <input type="text" class="form-control form-control-dark" value="Luigi's Pizzeria" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-dark">Cuisine Category</label>
+                <input type="text" class="form-control form-control-dark" value="Italian" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-dark">Address</label>
+                <input type="text" class="form-control form-control-dark" value="142 Lygon Street, Carlton, Melbourne" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-dark">Base Delivery Charge ($)</label>
+                <input type="number" step="0.5" class="form-control form-control-dark" value="2.50" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-dark">Operating Hours</label>
+                <input type="text" class="form-control form-control-dark" value="11:00 AM - 10:30 PM (Mon-Sun)" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-dark">Delivery Radius (km)</label>
+                <input type="number" class="form-control form-control-dark" value="8" required>
+              </div>
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-primary-custom"><i class="bi bi-save me-1"></i> Update Restaurant Details</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function showResSection(secId, navLink) {
+      document.querySelectorAll('.res-section').forEach(s => s.style.display = 'none');
+      document.getElementById(secId).style.display = 'block';
+      document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+      navLink.classList.add('active');
+    }
+
+    function toggleStoreStatus(sw) {
+      const lbl = document.getElementById('storeStatusLabel');
+      if (sw.checked) {
+        lbl.textContent = 'Accepting Orders';
+        lbl.className = 'form-check-label fw-bold text-success';
+        showToast('Restaurant store status updated to ONLINE', 'success');
+      } else {
+        lbl.textContent = 'Store Closed';
+        lbl.className = 'form-check-label fw-bold text-danger';
+        showToast('Restaurant store status updated to OFFLINE', 'warning');
+      }
+    }
+
+    function updateOrderStatus(orderId, newStatus, btn) {
+      showToast(`Order ${orderId} updated to ${newStatus}!`, 'success');
+      const tr = btn.closest('tr');
+      const badge = tr.querySelector('.status-badge');
+      badge.textContent = newStatus;
+      if (newStatus === 'Preparing') badge.className = 'status-badge status-preparing';
+      if (newStatus === 'Ready for Pickup') badge.className = 'status-badge status-delivered';
+      if (newStatus === 'Rejected') badge.className = 'status-badge status-cancelled';
+    }
+
+    function loadResMenuItems() {
+      const grid = document.getElementById('resMenuItemsGrid');
+      const res = RESTAURANTS[0];
+      grid.innerHTML = res.menu.map(item => `
+        <div class="col-md-6 col-lg-4">
+          <div class="card-dark h-100 d-flex flex-column">
+            <img src="${item.image}" class="rounded mb-3" style="height:140px; object-fit:cover;">
+            <h6 class="fw-bold mb-1">${item.name}</h6>
+            <p class="text-muted small mb-2">${item.desc}</p>
+            <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+              <span class="fw-bold text-primary">$${item.price.toFixed(2)}</span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" ${item.available ? 'checked' : ''} onchange="toggleItemAvail(${item.id}, this)">
+                <label class="form-check-label small">${item.available ? 'Available' : 'Disabled'}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleItemAvail(itemId, sw) {
+      showToast(`Menu item availability toggled`, 'info');
+    }
+
+    function showAddItemModal() {
+      const name = prompt('Enter new dish name:');
+      if (name) {
+        showToast(`Item "${name}" added to menu!`, 'success');
+      }
+    }
+
+    function handleCreateCoupon(e) {
+      e.preventDefault();
+      const code = document.getElementById('couponCodeInput').value;
+      showToast(`Coupon "${code}" created successfully!`, 'success');
+    }
+
+    function handleResProfileSave(e) {
+      e.preventDefault();
+      showToast('Restaurant profile details updated!', 'success');
+    }
+
+    document.addEventListener('DOMContentLoaded', loadResMenuItems);
+  </script>
+</body>
+</html>

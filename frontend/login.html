@@ -11,14 +11,28 @@
 </head>
 <body>
 
+  <!-- Demo Role Simulator Bar -->
+  <div class="role-demo-bar text-center">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
+      <div class="d-flex gap-2">
+        <a href="index.html"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.html"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.html"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.html"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+      </div>
+    </div>
+  </div>
+
   <div class="auth-page">
     <!-- Left: Image Side -->
     <div class="auth-image-side">
       <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&h=1200&fit=crop" alt="Delicious food spread">
       <div class="overlay"></div>
       <div style="position:absolute; bottom:3rem; left:3rem; right:3rem; z-index:2;">
-        <h2 style="font-weight:800; font-size:2rem; margin-bottom:0.5rem;">Discover Amazing Food</h2>
-        <p style="color:rgba(255,255,255,0.8); font-size:1rem;">Join Food Mate and enjoy Melbourne's best restaurants delivered to your door with zero service fees.</p>
+        <span class="badge bg-warning text-dark mb-2 px-3 py-2 fw-semibold">Zero Service Fees</span>
+        <h2 style="font-weight:800; font-size:2.2rem; margin-bottom:0.5rem;">Discover Melbourne's Best Food</h2>
+        <p style="color:rgba(255,255,255,0.8); font-size:1rem;">Join Food Mate to browse local restaurants, track orders live, or manage your restaurant & delivery operations.</p>
       </div>
     </div>
 
@@ -26,87 +40,67 @@
     <div class="auth-form-side">
       <div class="auth-form-container">
         <!-- Brand -->
-        <div class="brand-logo">
-          <a href="index.html" style="color:var(--text-primary); text-decoration:none;">
-            <i class="bi bi-egg-fried" style="color:var(--accent)"></i> Food <span>Mate</span>
+        <div class="brand-logo text-center mb-4">
+          <a href="index.html" class="navbar-brand-custom justify-content-center text-white" style="font-size:2rem;">
+            <i class="bi bi-egg-fried" style="color:var(--primary-color)"></i> Food <span>Mate</span>
           </a>
+        </div>
+
+        <!-- Mode Toggle Tabs -->
+        <div class="d-flex bg-dark rounded-pill p-1 mb-4 border border-secondary">
+          <button class="btn w-50 rounded-pill text-white fw-bold py-2" id="tabSignInBtn" onclick="switchAuthTab('signin')" style="background:var(--primary-color)">Sign In</button>
+          <button class="btn w-50 rounded-pill text-secondary fw-bold py-2" id="tabRegisterBtn" onclick="switchAuthTab('register')">Register</button>
         </div>
 
         <!-- Sign In Card -->
         <div class="auth-card" id="loginCard">
           <h2>Welcome Back</h2>
+          <p class="text-secondary small mb-4">Select your role to sign into your Food Mate portal</p>
           <form id="loginForm" onsubmit="handleLogin(event)">
             <div class="mb-3">
-              <div class="input-group-dark">
-                <div class="input-group">
-                  <span class="input-group-text" style="background:var(--bg-secondary); border:1px solid var(--border-color); border-right:none; color:var(--text-muted);">
-                    <i class="bi bi-envelope"></i>
-                  </span>
-                  <input type="email" class="form-control form-control-dark" placeholder="Email address" id="loginEmail" required>
-                </div>
-              </div>
+              <label class="form-label-dark text-white">Login Role:</label>
+              <select class="form-select form-control-dark bg-dark text-white border-secondary" id="loginRole">
+                <option value="customer">Customer (Order & Track)</option>
+                <option value="restaurant">Restaurant Partner (Manage Menu & Orders)</option>
+                <option value="delivery">Delivery Partner (Manage Assignments)</option>
+                <option value="admin">System Administrator (Global Oversight)</option>
+              </select>
             </div>
             <div class="mb-3">
-              <label class="form-label-dark">Password</label>
-              <div class="password-toggle">
-                <input type="password" class="form-control form-control-dark" placeholder="Enter your password" id="loginPassword" required>
-                <button type="button" class="toggle-btn"><i class="bi bi-eye"></i></button>
-              </div>
+              <label class="form-label-dark text-white">Email Address</label>
+              <input type="email" class="form-control form-control-dark bg-dark text-white border-secondary" placeholder="user@foodmate.com.au" id="loginEmail" required value="alex.johnson@example.com">
             </div>
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="rememberMe">
-                <label class="form-check-label small" for="rememberMe" style="color:var(--text-secondary)">Remember Me</label>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <label class="form-label-dark text-white">Password</label>
+                <a href="#" class="small text-info text-decoration-none" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Password?</a>
               </div>
-              <a href="#" style="font-size:0.85rem">Forgot Password?</a>
+              <input type="password" class="form-control form-control-dark bg-dark text-white border-secondary" placeholder="••••••••" id="loginPassword" required value="password123">
             </div>
-            <button type="submit" class="btn btn-accent w-100 py-2 mb-3">
-              <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+            <div class="form-check mb-4">
+              <input class="form-check-input bg-dark border-secondary" type="checkbox" id="rememberMe" checked>
+              <label class="form-check-label small text-secondary" for="rememberMe">Remember login details</label>
+            </div>
+            <button type="submit" class="btn btn-primary-custom w-100 py-2 fs-6">
+              <i class="bi bi-box-arrow-in-right me-2"></i>Sign In to Account
             </button>
           </form>
 
-          <div class="divider-text">or</div>
+          <div class="divider-text">or sign in with</div>
 
           <div class="social-login">
-            <button class="btn"><i class="bi bi-google" style="color:#EA4335"></i> Google</button>
-            <button class="btn"><i class="bi bi-facebook" style="color:#1877F2"></i> Facebook</button>
+            <button class="btn"><i class="bi bi-google text-danger me-1"></i> Google</button>
+            <button class="btn"><i class="bi bi-facebook text-primary me-1"></i> Facebook</button>
           </div>
-
-          <p class="text-center mt-3" style="font-size:0.88rem; color:var(--text-secondary)">
-            Don't have an account? <a href="#" onclick="toggleAuth(event)">Register</a>
-          </p>
-        </div>
-
-        <!-- Auth Toggle -->
-        <div class="auth-toggle">
-          <span id="toggleLabelLogin" style="color:var(--accent); font-weight:700;">Sign In</span>
-          <div class="toggle-switch" id="authToggle" onclick="toggleAuth(event)">
-            <div class="toggle-knob"></div>
-          </div>
-          <span id="toggleLabelRegister" style="color:var(--text-secondary);">Register</span>
         </div>
 
         <!-- Register Card (hidden initially) -->
-        <div class="auth-card mt-3" id="registerCard" style="display:none;">
+        <div class="auth-card" id="registerCard" style="display:none;">
           <h2>Create Account</h2>
+          <p class="text-secondary small mb-3">Choose your user classification to register</p>
           <form id="registerForm" onsubmit="handleRegister(event)">
             <div class="mb-3">
-              <input type="text" class="form-control form-control-dark" placeholder="Full Name" id="regName" required>
-            </div>
-            <div class="mb-3">
-              <input type="email" class="form-control form-control-dark" placeholder="Email address" id="regEmail" required>
-            </div>
-            <div class="mb-3">
-              <input type="tel" class="form-control form-control-dark" placeholder="Phone number" id="regPhone" required>
-            </div>
-            <div class="mb-3">
-              <div class="password-toggle">
-                <input type="password" class="form-control form-control-dark" placeholder="Create a password" id="regPassword" required>
-                <button type="button" class="toggle-btn"><i class="bi bi-eye"></i></button>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label-dark">I am a:</label>
+              <label class="form-label-dark text-white">I am registering as a:</label>
               <div class="role-selector">
                 <div class="role-option">
                   <input type="radio" name="userRole" id="roleCustomer" value="customer" checked>
@@ -120,16 +114,32 @@
                   <input type="radio" name="userRole" id="roleDelivery" value="delivery">
                   <label for="roleDelivery"><i class="bi bi-bicycle me-1"></i>Delivery</label>
                 </div>
+                <div class="role-option">
+                  <input type="radio" name="userRole" id="roleAdmin" value="admin">
+                  <label for="roleAdmin"><i class="bi bi-shield-lock me-1"></i>Admin</label>
+                </div>
               </div>
             </div>
+            <div class="mb-2">
+              <input type="text" class="form-control form-control-dark bg-dark text-white border-secondary" placeholder="Full Name / Business Name" id="regName" required>
+            </div>
+            <div class="mb-2">
+              <input type="email" class="form-control form-control-dark bg-dark text-white border-secondary" placeholder="Email address" id="regEmail" required>
+            </div>
+            <div class="mb-2">
+              <input type="tel" class="form-control form-control-dark bg-dark text-white border-secondary" placeholder="Phone number" id="regPhone" required>
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control form-control-dark bg-dark text-white border-secondary" placeholder="Create password (min 6 chars)" id="regPassword" required minlength="6">
+            </div>
             <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="agreeTerms" required>
-              <label class="form-check-label small" for="agreeTerms" style="color:var(--text-secondary)">
-                I agree to the <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>
+              <input class="form-check-input bg-dark border-secondary" type="checkbox" id="agreeTerms" required>
+              <label class="form-check-label small text-secondary" for="agreeTerms">
+                I agree to the <a href="privacy-terms.html" class="text-info">Terms of Service</a> & <a href="privacy-terms.html" class="text-info">Privacy Policy</a>
               </label>
             </div>
-            <button type="submit" class="btn btn-accent w-100 py-2">
-              <i class="bi bi-person-plus me-2"></i>Create Account
+            <button type="submit" class="btn btn-primary-custom w-100 py-2">
+              <i class="bi bi-person-plus me-2"></i>Complete Registration
             </button>
           </form>
         </div>
@@ -138,62 +148,90 @@
     </div>
   </div>
 
+  <!-- Password Reset Modal -->
+  <div class="modal fade" id="forgotPasswordModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white border-secondary">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title"><i class="bi bi-key me-2 text-warning"></i>Reset Password (LL FR 1.3)</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-secondary small">Enter your registered email address. We will send you a secure 6-digit verification code to reset your password.</p>
+          <div class="mb-3">
+            <label class="form-label text-white">Registered Email</label>
+            <input type="email" class="form-control bg-secondary text-white border-secondary" id="resetEmailInput" placeholder="user@foodmate.com.au">
+          </div>
+        </div>
+        <div class="modal-footer border-secondary">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary-custom" onclick="sendPasswordReset()">Send Reset Link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/app.js"></script>
   <script>
-    let isRegisterMode = false;
-
-    function toggleAuth(e) {
-      e.preventDefault();
-      isRegisterMode = !isRegisterMode;
+    function switchAuthTab(mode) {
       const loginCard = document.getElementById('loginCard');
       const registerCard = document.getElementById('registerCard');
-      const toggle = document.getElementById('authToggle');
-      const labelLogin = document.getElementById('toggleLabelLogin');
-      const labelRegister = document.getElementById('toggleLabelRegister');
+      const tabSignInBtn = document.getElementById('tabSignInBtn');
+      const tabRegisterBtn = document.getElementById('tabRegisterBtn');
 
-      if (isRegisterMode) {
+      if (mode === 'register') {
         loginCard.style.display = 'none';
         registerCard.style.display = 'block';
-        registerCard.style.animation = 'fadeInUp 0.4s ease forwards';
-        toggle.classList.add('active');
-        labelLogin.style.color = 'var(--text-secondary)';
-        labelLogin.style.fontWeight = '500';
-        labelRegister.style.color = 'var(--accent)';
-        labelRegister.style.fontWeight = '700';
+        tabSignInBtn.style.background = 'transparent';
+        tabSignInBtn.classList.replace('text-white', 'text-secondary');
+        tabRegisterBtn.style.background = 'var(--primary-color)';
+        tabRegisterBtn.classList.replace('text-secondary', 'text-white');
       } else {
         loginCard.style.display = 'block';
         registerCard.style.display = 'none';
-        loginCard.style.animation = 'fadeInUp 0.4s ease forwards';
-        toggle.classList.remove('active');
-        labelLogin.style.color = 'var(--accent)';
-        labelLogin.style.fontWeight = '700';
-        labelRegister.style.color = 'var(--text-secondary)';
-        labelRegister.style.fontWeight = '500';
+        tabRegisterBtn.style.background = 'transparent';
+        tabRegisterBtn.classList.replace('text-white', 'text-secondary');
+        tabSignInBtn.style.background = 'var(--primary-color)';
+        tabSignInBtn.classList.replace('text-secondary', 'text-white');
       }
     }
 
     function handleLogin(e) {
       e.preventDefault();
-      const form = document.getElementById('loginForm');
-      if (validateForm(form)) {
-        showToast('Login successful! Redirecting...', 'success');
-        setTimeout(() => window.location.href = 'dashboard.html', 1500);
-      }
+      const role = document.getElementById('loginRole').value;
+      showToast(`Logged in successfully as ${role.toUpperCase()}!`, 'success');
+      setTimeout(() => {
+        if (role === 'restaurant') window.location.href = 'restaurant-dashboard.html';
+        else if (role === 'delivery') window.location.href = 'delivery-dashboard.html';
+        else if (role === 'admin') window.location.href = 'admin-dashboard.html';
+        else window.location.href = 'dashboard.html';
+      }, 1200);
     }
 
     function handleRegister(e) {
       e.preventDefault();
-      const form = document.getElementById('registerForm');
-      if (validateForm(form)) {
-        const role = document.querySelector('input[name="userRole"]:checked').value;
-        showToast(`Account created successfully as ${role}!`, 'success');
-        setTimeout(() => {
-          if (role === 'restaurant') window.location.href = 'restaurant-dashboard.html';
-          else if (role === 'delivery') window.location.href = 'delivery-dashboard.html';
-          else window.location.href = 'dashboard.html';
-        }, 1500);
+      const role = document.querySelector('input[name="userRole"]:checked').value;
+      const name = document.getElementById('regName').value;
+      showToast(`Account created for ${name} as ${role.toUpperCase()}!`, 'success');
+      setTimeout(() => {
+        if (role === 'restaurant') window.location.href = 'restaurant-dashboard.html';
+        else if (role === 'delivery') window.location.href = 'delivery-dashboard.html';
+        else if (role === 'admin') window.location.href = 'admin-dashboard.html';
+        else window.location.href = 'dashboard.html';
+      }, 1200);
+    }
+
+    function sendPasswordReset() {
+      const email = document.getElementById('resetEmailInput').value;
+      if (!email) {
+        showToast('Please enter your email address!', 'warning');
+        return;
       }
+      const modalEl = document.getElementById('forgotPasswordModal');
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      if (modal) modal.hide();
+      showToast(`Verification code sent to ${email}! Check your inbox.`, 'success');
     }
   </script>
 </body>
