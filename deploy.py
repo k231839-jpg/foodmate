@@ -6,8 +6,8 @@ port = 2222
 username = 'mehedih3_cpro306_g10'
 password = 'cpro306'
 
-local_path = 'c:\\Foodmate\\frontend'
-remote_path = '.'  # Upload directly to the root of the server!
+local_path = 'c:\\Users\\brgul\\OneDrive\\Desktop\\foodmate\\frontend'
+remote_path = 'public_html'
 
 def sftp_upload_dir(sftp, local_dir, remote_dir):
     try:
