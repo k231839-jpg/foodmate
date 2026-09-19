@@ -17,10 +17,10 @@
     <div class="container d-flex justify-content-between align-items-center flex-wrap">
       <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
       <div class="d-flex gap-2">
-        <a href="index.html"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.html"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.html"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.html" class="active"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php" class="active"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@
         <li><a href="#" onclick="showAdminSec('commissionsSec', this)"><i class="bi bi-cash-coin me-2"></i>Commissions & Fees (LL FR 5.4)</a></li>
         <li><a href="#" onclick="showAdminSec('reviewsSec', this)"><i class="bi bi-chat-left-quote me-2"></i>Reviews Moderation (LL FR 5.5)</a></li>
         <li><a href="#" onclick="showAdminSec('announceSec', this)"><i class="bi bi-megaphone me-2"></i>Global Broadcast (LL FR 6.0)</a></li>
-        <li class="mt-4 border-top border-secondary pt-3"><a href="index.html" class="text-danger"><i class="bi bi-box-arrow-left me-2"></i>Exit Admin Panel</a></li>
+        <li class="mt-4 border-top border-secondary pt-3"><a href="index.php" class="text-danger"><i class="bi bi-box-arrow-left me-2"></i>Exit Admin Panel</a></li>
       </ul>
     </div>
 

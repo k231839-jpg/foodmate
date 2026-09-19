@@ -16,10 +16,10 @@
     <div class="container d-flex justify-content-between align-items-center flex-wrap">
       <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
       <div class="d-flex gap-2">
-        <a href="index.html" class="active"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.html"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.html"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.html"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+        <a href="index.php" class="active"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-foodmate sticky-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand navbar-brand-custom" href="index.html">
+      <a class="navbar-brand navbar-brand-custom" href="index.php">
         <i class="bi bi-egg-fried"></i> Food Mate
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -40,14 +40,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="restaurants.html">Restaurants</a></li>
-          <li class="nav-item"><a class="nav-link" href="track-order.html">Track Order</a></li>
-          <li class="nav-item"><a class="nav-link" href="dashboard.html">My Account</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="restaurants.php">Restaurants</a></li>
+          <li class="nav-item"><a class="nav-link" href="track-order.php">Track Order</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.php">My Account</a></li>
         </ul>
         <div class="d-flex align-items-center gap-3">
-          <a href="login.html" class="btn btn-signin">Sign In</a>
-          <a href="checkout.html" class="btn btn-primary-custom text-decoration-none position-relative">
+          <a href="login.php" class="btn btn-signin">Sign In</a>
+          <a href="checkout.php" class="btn btn-primary-custom text-decoration-none position-relative">
             <i class="bi bi-cart3 me-1"></i> Cart
             <span class="cart-count" style="position:absolute; top:-6px; right:-6px; display:none;">0</span>
           </a>
@@ -70,7 +70,7 @@
           <div class="glass-panel p-3 d-flex align-items-center mx-auto shadow-lg" style="max-width: 650px; border-radius: 50px;">
             <i class="bi bi-geo-alt-fill text-danger fs-4 ms-2 me-3"></i>
             <input type="text" class="form-control border-0 bg-transparent fs-5" placeholder="Enter your delivery address in Melbourne..." id="heroAddressInput">
-            <a href="restaurants.html" class="btn-primary-custom text-decoration-none ms-2 text-nowrap py-3 px-4" style="border-radius: 40px;">
+            <a href="restaurants.php" class="btn-primary-custom text-decoration-none ms-2 text-nowrap py-3 px-4" style="border-radius: 40px;">
               <i class="bi bi-search me-1"></i> Find Food
             </a>
           </div>
@@ -90,15 +90,15 @@
     <div class="container">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Browse by Category</h3>
-        <a href="restaurants.html" class="text-decoration-none fw-bold" style="color: var(--primary-color)">All Cuisines <i class="bi bi-arrow-right"></i></a>
+        <a href="restaurants.php" class="text-decoration-none fw-bold" style="color: var(--primary-color)">All Cuisines <i class="bi bi-arrow-right"></i></a>
       </div>
       <div class="d-flex flex-wrap gap-3">
-        <a href="restaurants.html?filter=all" class="filter-pill active text-decoration-none"><i class="bi bi-star-fill text-warning me-1"></i> All Top Rated</a>
-        <a href="restaurants.html?filter=italian" class="filter-pill text-decoration-none">🍕 Italian & Pizza</a>
-        <a href="restaurants.html?filter=american" class="filter-pill text-decoration-none">🍔 Gourmet Burgers</a>
-        <a href="restaurants.html?filter=japanese" class="filter-pill text-decoration-none">🍣 Japanese & Sushi</a>
-        <a href="restaurants.html?filter=indian" class="filter-pill text-decoration-none">🍛 Indian Curry</a>
-        <a href="restaurants.html?filter=mexican" class="filter-pill text-decoration-none">🌮 Mexican Tacos</a>
+        <a href="restaurants.php?filter=all" class="filter-pill active text-decoration-none"><i class="bi bi-star-fill text-warning me-1"></i> All Top Rated</a>
+        <a href="restaurants.php?filter=italian" class="filter-pill text-decoration-none">🍕 Italian & Pizza</a>
+        <a href="restaurants.php?filter=american" class="filter-pill text-decoration-none">🍔 Gourmet Burgers</a>
+        <a href="restaurants.php?filter=japanese" class="filter-pill text-decoration-none">🍣 Japanese & Sushi</a>
+        <a href="restaurants.php?filter=indian" class="filter-pill text-decoration-none">🍛 Indian Curry</a>
+        <a href="restaurants.php?filter=mexican" class="filter-pill text-decoration-none">🌮 Mexican Tacos</a>
       </div>
     </div>
   </section>
@@ -111,7 +111,7 @@
           <h2 class="mb-1">Featured Local Restaurants</h2>
           <p class="text-muted mb-0">Commission-free partners offering exclusive discounts</p>
         </div>
-        <a href="restaurants.html" class="btn btn-outline-custom text-decoration-none">View All Restaurants</a>
+        <a href="restaurants.php" class="btn btn-outline-custom text-decoration-none">View All Restaurants</a>
       </div>
       <div class="row g-4" id="indexFeaturedGrid">
         <!-- Rendered dynamically -->
@@ -156,24 +156,24 @@
     <div class="container">
       <div class="row g-4">
         <div class="col-md-4">
-          <a class="footer-brand" href="index.html"><i class="bi bi-egg-fried"></i> Food Mate</a>
+          <a class="footer-brand" href="index.php"><i class="bi bi-egg-fried"></i> Food Mate</a>
           <p class="text-white-50 small">Melbourne's premier online food delivery network connecting local restaurants directly with customers without high commissions or hidden service fees.</p>
         </div>
         <div class="col-md-3">
           <h6 class="fw-bold text-white mb-3">Quick Links</h6>
           <ul class="footer-links">
-            <li><a href="restaurants.html">Browse Restaurants</a></li>
-            <li><a href="track-order.html">Track Order Status</a></li>
-            <li><a href="login.html">Sign In / Register</a></li>
-            <li><a href="privacy-terms.html">Privacy Policy & Terms</a></li>
+            <li><a href="restaurants.php">Browse Restaurants</a></li>
+            <li><a href="track-order.php">Track Order Status</a></li>
+            <li><a href="login.php">Sign In / Register</a></li>
+            <li><a href="privacy-terms.php">Privacy Policy & Terms</a></li>
           </ul>
         </div>
         <div class="col-md-3">
           <h6 class="fw-bold text-white mb-3">Partner Portals</h6>
           <ul class="footer-links">
-            <li><a href="restaurant-dashboard.html">Restaurant Dashboard</a></li>
-            <li><a href="delivery-dashboard.html">Delivery Driver Portal</a></li>
-            <li><a href="admin-dashboard.html">System Admin Dashboard</a></li>
+            <li><a href="restaurant-dashboard.php">Restaurant Dashboard</a></li>
+            <li><a href="delivery-dashboard.php">Delivery Driver Portal</a></li>
+            <li><a href="admin-dashboard.php">System Admin Dashboard</a></li>
           </ul>
         </div>
         <div class="col-md-2">
@@ -190,7 +190,7 @@
 
   <!-- Floating Cart -->
   <div class="cart-floating">
-    <a href="checkout.html">
+    <a href="checkout.php">
       <button class="cart-btn" title="View Cart">
         <i class="bi bi-cart3"></i>
         <span class="cart-count" style="display:none;">0</span>
@@ -206,7 +206,7 @@
       if (grid && typeof RESTAURANTS !== 'undefined') {
         grid.innerHTML = RESTAURANTS.map(r => `
           <div class="col-md-4">
-            <a href="restaurant-detail.html?id=${r.id}" class="text-decoration-none">
+            <a href="restaurant-detail.php?id=${r.id}" class="text-decoration-none">
               <div class="restaurant-card">
                 <div class="card-img-wrapper">
                   <img src="${r.image}" alt="${r.name}">

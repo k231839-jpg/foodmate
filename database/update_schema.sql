@@ -1,0 +1,29 @@
+USE mehedih3_cpro306_g10;
+
+-- REVIEW Table
+CREATE TABLE IF NOT EXISTS REVIEW (
+    ReviewID INT AUTO_INCREMENT PRIMARY KEY,
+    CustomerID INT NOT NULL,
+    RestaurantID INT,
+    PartnerID INT,
+    Rating INT NOT NULL CHECK (Rating >= 1 AND Rating <= 5),
+    Comment TEXT,
+    Status VARCHAR(50) DEFAULT 'Pending', -- For Admin moderation
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (CustomerID) REFERENCES CUSTOMER(CustomerID) ON DELETE CASCADE,
+    FOREIGN KEY (RestaurantID) REFERENCES RESTAURANT(RestaurantID) ON DELETE CASCADE,
+    FOREIGN KEY (PartnerID) REFERENCES DELIVERY_PARTNER(PartnerID) ON DELETE CASCADE
+);
+
+-- COUPON Table
+CREATE TABLE IF NOT EXISTS COUPON (
+    CouponID INT AUTO_INCREMENT PRIMARY KEY,
+    Code VARCHAR(50) NOT NULL UNIQUE,
+    RestaurantID INT, -- NULL if it's a global platform coupon
+    DiscountType VARCHAR(20) NOT NULL, -- 'Percentage' or 'Fixed'
+    DiscountValue DECIMAL(10, 2) NOT NULL,
+    ExpiryDate DATETIME,
+    IsActive BOOLEAN DEFAULT TRUE,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (RestaurantID) REFERENCES RESTAURANT(RestaurantID) ON DELETE CASCADE
+);

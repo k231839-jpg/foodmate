@@ -16,10 +16,10 @@
     <div class="container d-flex justify-content-between align-items-center flex-wrap">
       <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
       <div class="d-flex gap-2">
-        <a href="index.html"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.html"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.html"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.html"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
       <div class="auth-form-container">
         <!-- Brand -->
         <div class="brand-logo text-center mb-4">
-          <a href="index.html" class="navbar-brand-custom justify-content-center text-white" style="font-size:2rem;">
+          <a href="index.php" class="navbar-brand-custom justify-content-center text-white" style="font-size:2rem;">
             <i class="bi bi-egg-fried" style="color:var(--primary-color)"></i> Food <span>Mate</span>
           </a>
         </div>
@@ -135,7 +135,7 @@
             <div class="form-check mb-3">
               <input class="form-check-input bg-dark border-secondary" type="checkbox" id="agreeTerms" required>
               <label class="form-check-label small text-secondary" for="agreeTerms">
-                I agree to the <a href="privacy-terms.html" class="text-info">Terms of Service</a> & <a href="privacy-terms.html" class="text-info">Privacy Policy</a>
+                I agree to the <a href="privacy-terms.php" class="text-info">Terms of Service</a> & <a href="privacy-terms.php" class="text-info">Privacy Policy</a>
               </label>
             </div>
             <button type="submit" class="btn btn-primary-custom w-100 py-2">
@@ -202,10 +202,10 @@
       const role = document.getElementById('loginRole').value;
       showToast(`Logged in successfully as ${role.toUpperCase()}!`, 'success');
       setTimeout(() => {
-        if (role === 'restaurant') window.location.href = 'restaurant-dashboard.html';
-        else if (role === 'delivery') window.location.href = 'delivery-dashboard.html';
-        else if (role === 'admin') window.location.href = 'admin-dashboard.html';
-        else window.location.href = 'dashboard.html';
+        if (role === 'restaurant') window.location.href = 'restaurant-dashboard.php';
+        else if (role === 'delivery') window.location.href = 'delivery-dashboard.php';
+        else if (role === 'admin') window.location.href = 'admin-dashboard.php';
+        else window.location.href = 'dashboard.php';
       }, 1200);
     }
 
@@ -215,10 +215,10 @@
       const name = document.getElementById('regName').value;
       showToast(`Account created for ${name} as ${role.toUpperCase()}!`, 'success');
       setTimeout(() => {
-        if (role === 'restaurant') window.location.href = 'restaurant-dashboard.html';
-        else if (role === 'delivery') window.location.href = 'delivery-dashboard.html';
-        else if (role === 'admin') window.location.href = 'admin-dashboard.html';
-        else window.location.href = 'dashboard.html';
+        if (role === 'restaurant') window.location.href = 'restaurant-dashboard.php';
+        else if (role === 'delivery') window.location.href = 'delivery-dashboard.php';
+        else if (role === 'admin') window.location.href = 'admin-dashboard.php';
+        else window.location.href = 'dashboard.php';
       }, 1200);
     }
 

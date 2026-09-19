@@ -6,9 +6,13 @@ port = 2222
 username = 'mehedih3_cpro306_g10'
 password = 'cpro306'
 
-local_path = 'c:\\Users\\brgul\\OneDrive\\Desktop\\foodmate\\frontend'
-remote_path = 'public_html'
+base_local_path = 'c:\\Users\\brgul\\OneDrive\\Desktop\\foodmate'
+remote_base_path = '.'
 
+dirs_to_upload = [
+    ('frontend', ''), # upload contents of frontend directly
+    ('api', 'api')    # upload api to api subdirectory
+]
 def sftp_upload_dir(sftp, local_dir, remote_dir):
     try:
         sftp.stat(remote_dir)
@@ -34,8 +38,12 @@ try:
     transport.connect(username=username, password=password)
     sftp = paramiko.SFTPClient.from_transport(transport)
     
-    print(f"Uploading {local_path} to {remote_path}...")
-    sftp_upload_dir(sftp, local_path, remote_path)
+    for local_dir, remote_subdir in dirs_to_upload:
+        full_local = os.path.join(base_local_path, local_dir)
+        full_remote = f"{remote_base_path}/{remote_subdir}" if remote_subdir else remote_base_path
+        
+        print(f"Uploading {full_local} to {full_remote}...")
+        sftp_upload_dir(sftp, full_local, full_remote)
     
     sftp.close()
     transport.close()

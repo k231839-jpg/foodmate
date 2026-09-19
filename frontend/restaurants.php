@@ -16,10 +16,10 @@
     <div class="container d-flex justify-content-between align-items-center flex-wrap">
       <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
       <div class="d-flex gap-2">
-        <a href="index.html"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.html"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.html"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.html"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-foodmate sticky-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand navbar-brand-custom" href="index.html">
+      <a class="navbar-brand navbar-brand-custom" href="index.php">
         <i class="bi bi-egg-fried brand-icon"></i> Food Mate
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -35,18 +35,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="restaurants.html">Restaurants</a></li>
-          <li class="nav-item"><a class="nav-link" href="track-order.html">Track Order</a></li>
-          <li class="nav-item"><a class="nav-link" href="dashboard.html">My Account</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="restaurants.php">Restaurants</a></li>
+          <li class="nav-item"><a class="nav-link" href="track-order.php">Track Order</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.php">My Account</a></li>
         </ul>
         <div class="d-flex align-items-center gap-2">
           <div class="nav-search d-none d-md-block">
             <i class="bi bi-search search-icon"></i>
             <input type="text" placeholder="Search cuisine or food..." id="navSearch" oninput="searchRestaurants(this.value)">
           </div>
-          <a href="login.html" class="btn btn-signin">Sign In</a>
-          <a href="checkout.html" class="btn btn-primary-custom position-relative text-decoration-none">
+          <a href="login.php" class="btn btn-signin">Sign In</a>
+          <a href="checkout.php" class="btn btn-primary-custom position-relative text-decoration-none">
             <i class="bi bi-cart3 me-1"></i> Cart
             <span class="cart-count" style="position:absolute; top:-6px; right:-6px; display:none;">0</span>
           </a>
@@ -159,7 +159,7 @@
 
   <!-- Floating Cart Button -->
   <div class="cart-floating">
-    <a href="checkout.html">
+    <a href="checkout.php">
       <button class="cart-btn" title="View Cart">
         <i class="bi bi-cart3"></i>
         <span class="cart-count" style="display:none;">0</span>
@@ -172,24 +172,24 @@
     <div class="container">
       <div class="row g-4">
         <div class="col-md-4">
-          <a class="footer-brand" href="index.html"><i class="bi bi-egg-fried"></i> Food Mate</a>
+          <a class="footer-brand" href="index.php"><i class="bi bi-egg-fried"></i> Food Mate</a>
           <p class="text-white-50 small">Melbourne's zero service fee delivery portal. Connecting local restaurants directly with customers.</p>
         </div>
         <div class="col-md-3">
           <h6 class="fw-bold text-white mb-3">Quick Navigation</h6>
           <ul class="footer-links">
-            <li><a href="restaurants.html">Browse Restaurants</a></li>
-            <li><a href="track-order.html">Track Active Orders</a></li>
-            <li><a href="login.html">Sign In / Register</a></li>
-            <li><a href="privacy-terms.html">Privacy & Terms</a></li>
+            <li><a href="restaurants.php">Browse Restaurants</a></li>
+            <li><a href="track-order.php">Track Active Orders</a></li>
+            <li><a href="login.php">Sign In / Register</a></li>
+            <li><a href="privacy-terms.php">Privacy & Terms</a></li>
           </ul>
         </div>
         <div class="col-md-3">
           <h6 class="fw-bold text-white mb-3">System Dashboards</h6>
           <ul class="footer-links">
-            <li><a href="restaurant-dashboard.html">Restaurant Dashboard</a></li>
-            <li><a href="delivery-dashboard.html">Delivery Partner Portal</a></li>
-            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="restaurant-dashboard.php">Restaurant Dashboard</a></li>
+            <li><a href="delivery-dashboard.php">Delivery Partner Portal</a></li>
+            <li><a href="admin-dashboard.php">Admin Dashboard</a></li>
           </ul>
         </div>
         <div class="col-md-2">
@@ -237,7 +237,7 @@
       restaurants.forEach((r) => {
         grid.innerHTML += `
           <div class="col-md-6 col-xl-4" data-cuisine="${r.cuisine}">
-            <a href="restaurant-detail.html?id=${r.id}" class="text-decoration-none">
+            <a href="restaurant-detail.php?id=${r.id}" class="text-decoration-none">
               <div class="restaurant-card">
                 <div class="card-img-wrapper">
                   <img src="${r.image}" alt="${r.name}" loading="lazy">

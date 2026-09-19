@@ -16,10 +16,10 @@
     <div class="container d-flex justify-content-between align-items-center flex-wrap">
       <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
       <div class="d-flex gap-2">
-        <a href="index.html"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.html"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.html"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.html"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
       </div>
     </div>
   </div>
@@ -27,11 +27,11 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-foodmate sticky-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand navbar-brand-custom" href="index.html">
+      <a class="navbar-brand navbar-brand-custom" href="index.php">
         <i class="bi bi-egg-fried brand-icon"></i> Food Mate
       </a>
       <div class="d-flex align-items-center gap-3">
-        <a href="dashboard.html" class="nav-link"><i class="bi bi-clock-history me-1"></i> Order History</a>
+        <a href="dashboard.php" class="nav-link"><i class="bi bi-clock-history me-1"></i> Order History</a>
       </div>
     </div>
   </nav>

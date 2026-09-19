@@ -293,7 +293,7 @@
       <button class="nav-btn" onclick="toggleOverview()" title="Slide Overview (O)"><i class="bi bi-grid-3x3-gap-fill me-1"></i> Overview</button>
       <button class="nav-btn" onclick="toggleSpeakerNotes()" title="Speaker Notes (N)"><i class="bi bi-journal-text me-1"></i> Notes</button>
       <button class="nav-btn" onclick="toggleFullScreen()" title="Fullscreen (F)"><i class="bi bi-arrows-fullscreen me-1"></i> Fullscreen</button>
-      <a href="index.html" target="_blank" class="nav-btn text-decoration-none text-light ms-2"><i class="bi bi-play-circle-fill me-1 text-success"></i> Launch App</a>
+      <a href="index.php" target="_blank" class="nav-btn text-decoration-none text-light ms-2"><i class="bi bi-play-circle-fill me-1 text-success"></i> Launch App</a>
     </div>
   </header>
 
@@ -472,28 +472,28 @@
             <div class="p-3 rounded-3 bg-dark border border-secondary text-start">
               <span class="badge bg-primary mb-2">Customer</span>
               <h6 class="text-white fw-bold">Customer Portal</h6>
-              <p class="text-muted small mb-0"><code>index.html</code><br><code>restaurants.html</code><br><code>restaurant-detail.html</code></p>
+              <p class="text-muted small mb-0"><code>index.php</code><br><code>restaurants.php</code><br><code>restaurant-detail.php</code></p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="p-3 rounded-3 bg-dark border border-secondary text-start">
               <span class="badge bg-warning text-dark mb-2">Ordering</span>
               <h6 class="text-white fw-bold">Checkout & Tracking</h6>
-              <p class="text-muted small mb-0"><code>checkout.html</code><br><code>track-order.html</code><br><code>dashboard.html</code></p>
+              <p class="text-muted small mb-0"><code>checkout.php</code><br><code>track-order.php</code><br><code>dashboard.php</code></p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="p-3 rounded-3 bg-dark border border-secondary text-start">
               <span class="badge bg-success mb-2">Partner</span>
               <h6 class="text-white fw-bold">Dashboards</h6>
-              <p class="text-muted small mb-0"><code>restaurant-dashboard.html</code><br><code>delivery-dashboard.html</code></p>
+              <p class="text-muted small mb-0"><code>restaurant-dashboard.php</code><br><code>delivery-dashboard.php</code></p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="p-3 rounded-3 bg-dark border border-secondary text-start">
               <span class="badge bg-danger mb-2">Admin</span>
               <h6 class="text-white fw-bold">Platform Governance</h6>
-              <p class="text-muted small mb-0"><code>admin-dashboard.html</code><br><code>login.html</code><br><code>privacy-terms.html</code></p>
+              <p class="text-muted small mb-0"><code>admin-dashboard.php</code><br><code>login.php</code><br><code>privacy-terms.php</code></p>
             </div>
           </div>
         </div>
@@ -509,7 +509,7 @@
 
         <div class="row g-3 my-auto">
           <div class="col-md-4">
-            <a href="index.html" target="_blank" class="text-decoration-none">
+            <a href="index.php" target="_blank" class="text-decoration-none">
               <div class="p-3 rounded-4 bg-dark border border-secondary text-start h-100 hover-card">
                 <i class="bi bi-shop fs-2 text-warning mb-2"></i>
                 <h5 class="text-white fw-bold">Customer Portal</h5>
@@ -520,7 +520,7 @@
           </div>
 
           <div class="col-md-4">
-            <a href="restaurant-dashboard.html" target="_blank" class="text-decoration-none">
+            <a href="restaurant-dashboard.php" target="_blank" class="text-decoration-none">
               <div class="p-3 rounded-4 bg-dark border border-secondary text-start h-100 hover-card">
                 <i class="bi bi-receipt fs-2 text-success mb-2"></i>
                 <h5 class="text-white fw-bold">Restaurant Dashboard</h5>
@@ -531,7 +531,7 @@
           </div>
 
           <div class="col-md-4">
-            <a href="admin-dashboard.html" target="_blank" class="text-decoration-none">
+            <a href="admin-dashboard.php" target="_blank" class="text-decoration-none">
               <div class="p-3 rounded-4 bg-dark border border-secondary text-start h-100 hover-card">
                 <i class="bi bi-speedometer fs-2 text-danger mb-2"></i>
                 <h5 class="text-white fw-bold">Admin Governance</h5>
@@ -669,7 +669,7 @@
         </p>
 
         <div class="d-flex gap-3 mt-3">
-          <a href="index.html" target="_blank" class="btn btn-warning btn-lg fw-bold px-4"><i class="bi bi-play-circle-fill me-2"></i> Experience FoodMate App</a>
+          <a href="index.php" target="_blank" class="btn btn-warning btn-lg fw-bold px-4"><i class="bi bi-play-circle-fill me-2"></i> Experience FoodMate App</a>
           <button onclick="currentSlideIndex=0; updateSlideDisplay();" class="btn btn-outline-light btn-lg px-4"><i class="bi bi-arrow-counterclockwise me-2"></i> Restart Slide Deck</button>
         </div>
       </div>

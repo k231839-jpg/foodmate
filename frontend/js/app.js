@@ -60,38 +60,28 @@ const DEFAULT_RESTAURANTS = [
   }
 ];
 
-// Initialize Storage
-if (!localStorage.getItem('fm_restaurants')) {
-  localStorage.setItem('fm_restaurants', JSON.stringify(DEFAULT_RESTAURANTS));
+// Fetch restaurants from PHP API instead of localStorage
+let RESTAURANTS = [];
+
+async function loadRestaurants() {
+    try {
+        const response = await fetch('api/restaurants.php?action=list');
+        const data = await response.json();
+        if (data.success) {
+            RESTAURANTS = data.restaurants;
+        }
+    } catch (e) {
+        console.error("Failed to load restaurants from API:", e);
+    }
 }
+
+// Call on startup
+loadRestaurants();
+
+// Cart and Orders still use localStorage for now, orders will be pushed to API
 if (!localStorage.getItem('fm_cart')) {
   localStorage.setItem('fm_cart', JSON.stringify([]));
 }
-if (!localStorage.getItem('fm_orders')) {
-  localStorage.setItem('fm_orders', JSON.stringify([
-    {
-      id: "FM-8092",
-      date: "2026-08-15 12:45",
-      restaurantName: "Luigi's Pizzeria",
-      items: [
-        { name: "Margherita Supreme", qty: 2, price: 18.50 },
-        { name: "Garlic Focaccia", qty: 1, price: 9.50 }
-      ],
-      subtotal: 46.50,
-      deliveryFee: 2.50,
-      discount: 5.00,
-      total: 44.00,
-      status: "Out for Delivery",
-      customerName: "Alex Johnson",
-      deliveryAddress: "350 Elizabeth St, Melbourne VIC 3000",
-      driverName: "Michael Chang (Toyota Prius - VIC 1AB2CD)",
-      paymentMethod: "Credit Card (Visa **** 4242)"
-    }
-  ]));
-}
-
-let RESTAURANTS = JSON.parse(localStorage.getItem('fm_restaurants'));
-
 // Global Cart Functions
 function getCart() {
   return JSON.parse(localStorage.getItem('fm_cart')) || [];

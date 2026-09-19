@@ -16,10 +16,10 @@
     <div class="container d-flex justify-content-between align-items-center flex-wrap">
       <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
       <div class="d-flex gap-2">
-        <a href="index.html" class="active"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.html"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.html"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.html"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+        <a href="index.php" class="active"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
       </div>
     </div>
   </div>
@@ -27,18 +27,18 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-foodmate sticky-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand navbar-brand-custom" href="index.html">
+      <a class="navbar-brand navbar-brand-custom" href="index.php">
         <i class="bi bi-egg-fried brand-icon"></i> Food Mate
       </a>
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="restaurants.html">Restaurants</a></li>
-          <li class="nav-item"><a class="nav-link" href="track-order.html">Track Order</a></li>
-          <li class="nav-item"><a class="nav-link active" href="dashboard.html">My Account</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="restaurants.php">Restaurants</a></li>
+          <li class="nav-item"><a class="nav-link" href="track-order.php">Track Order</a></li>
+          <li class="nav-item"><a class="nav-link active" href="dashboard.php">My Account</a></li>
         </ul>
         <div class="d-flex align-items-center gap-2">
-          <a href="login.html" class="btn btn-outline-danger btn-sm">Sign Out</a>
+          <a href="login.php" class="btn btn-outline-danger btn-sm">Sign Out</a>
         </div>
       </div>
     </div>
@@ -149,7 +149,7 @@
                       <td>2026-08-15</td>
                       <td class="fw-bold">$44.00</td>
                       <td><span class="status-badge status-delivery">Out for Delivery</span></td>
-                      <td><a href="track-order.html?orderId=FM-8092" class="btn btn-sm btn-outline-custom">Track</a></td>
+                      <td><a href="track-order.php?orderId=FM-8092" class="btn btn-sm btn-outline-custom">Track</a></td>
                     </tr>
                     <tr>
                       <td class="fw-bold text-primary">FM-7714</td>

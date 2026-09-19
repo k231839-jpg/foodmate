@@ -16,10 +16,10 @@
     <div class="container d-flex justify-content-between align-items-center flex-wrap">
       <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
       <div class="d-flex gap-2">
-        <a href="index.html"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.html"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.html" class="active"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.html"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php" class="active"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@
         <li><a href="#" class="active" onclick="showDriverSec('activeSec', this)"><i class="bi bi-geo-alt me-2"></i>Active Deliveries (LL FR 4.2)</a></li>
         <li><a href="#" onclick="showDriverSec('historySec', this)"><i class="bi bi-clock-history me-2"></i>Delivery History Log</a></li>
         <li><a href="#" onclick="showDriverSec('profileSec', this)"><i class="bi bi-person-gear me-2"></i>Driver Profile (LL FR 4.1)</a></li>
-        <li class="mt-4 border-top border-secondary pt-3"><a href="index.html" class="text-danger"><i class="bi bi-box-arrow-left me-2"></i>Exit Portal</a></li>
+        <li class="mt-4 border-top border-secondary pt-3"><a href="index.php" class="text-danger"><i class="bi bi-box-arrow-left me-2"></i>Exit Portal</a></li>
       </ul>
     </div>
 
