@@ -7,22 +7,9 @@
   <title>Food Mate — Browse Restaurants</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.css?v=2.2" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Demo Role Simulator Bar -->
-  <div class="role-demo-bar text-center">
-    <div class="container d-flex justify-content-between align-items-center flex-wrap">
-      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
-      <div class="d-flex gap-2">
-        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
-      </div>
-    </div>
-  </div>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-foodmate sticky-top" id="mainNav">
@@ -37,18 +24,18 @@
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="restaurants.php">Restaurants</a></li>
+          <li class="nav-item"><a class="nav-link" href="restaurants.php#cuisines">Cuisines</a></li>
+          <li class="nav-item"><a class="nav-link" href="restaurants.php#offers">Offers</a></li>
           <li class="nav-item"><a class="nav-link" href="track-order.php">Track Order</a></li>
           <li class="nav-item"><a class="nav-link" href="dashboard.php">My Account</a></li>
         </ul>
-        <div class="d-flex align-items-center gap-2">
-          <div class="nav-search d-none d-md-block">
-            <i class="bi bi-search search-icon"></i>
-            <input type="text" placeholder="Search cuisine or food..." id="navSearch" oninput="searchRestaurants(this.value)">
-          </div>
-          <a href="login.php" class="btn btn-signin">Sign In</a>
-          <a href="checkout.php" class="btn btn-primary-custom position-relative text-decoration-none">
-            <i class="bi bi-cart3 me-1"></i> Cart
-            <span class="cart-count" style="position:absolute; top:-6px; right:-6px; display:none;">0</span>
+        <div class="d-flex align-items-center gap-4 nav-icons">
+          <a href="#" class="text-dark fs-5" onclick="document.getElementById('navSearch').focus(); return false;"><i class="bi bi-search"></i></a>
+          <a href="#" class="text-dark fs-5"><i class="bi bi-heart"></i></a>
+          <a href="login.php" class="text-dark fs-5"><i class="bi bi-person"></i></a>
+          <a href="checkout.php" class="text-dark fs-5 position-relative">
+            <i class="bi bi-bag"></i>
+            <span class="cart-count" style="position:absolute; top:-6px; right:-10px; display:none;">0</span>
           </a>
         </div>
       </div>
@@ -59,11 +46,11 @@
     <!-- Page Header -->
     <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
       <div>
-        <h1 class="fw-bold mb-1">Restaurants Near You</h1>
-        <p class="text-muted mb-0">Browse top local dining spots in Melbourne with <strong>$0 Service Fees</strong></p>
+        <h1 class="section-title fw-bold mb-1" style="font-size:2.2rem;">Restaurants Near You</h1>
+        <p class="text-muted mb-0">Browse top local dining spots in Melbourne with <strong style="color:var(--primary-green);">$0 Service Fees</strong></p>
       </div>
       <div class="zero-fee-badge">
-        <i class="bi bi-shield-check text-success fs-5"></i>
+        <i class="bi bi-shield-check fs-5"></i>
         <span>No Commission Markups • Guaranteed Best Prices</span>
       </div>
     </div>
@@ -71,11 +58,13 @@
     <!-- Cuisine Filter Pills -->
     <div class="filter-pills" id="cuisineFilters">
       <button class="filter-pill active" data-filter="all">🍽️ All Cuisines</button>
-      <button class="filter-pill" data-filter="american">🍔 Gourmet Burgers</button>
-      <button class="filter-pill" data-filter="italian">🍕 Italian Pizza</button>
-      <button class="filter-pill" data-filter="japanese">🍣 Japanese Sushi</button>
-      <button class="filter-pill" data-filter="indian">🍛 Indian Spice</button>
-      <button class="filter-pill" data-filter="mexican">🌮 Mexican Tacos</button>
+      <button class="filter-pill" data-filter="american">🍔 Burgers</button>
+      <button class="filter-pill" data-filter="italian">🍕 Italian & Pizza</button>
+      <button class="filter-pill" data-filter="japanese">🍣 Japanese</button>
+      <button class="filter-pill" data-filter="indian">🍛 Indian</button>
+      <button class="filter-pill" data-filter="mexican">🌮 Mexican</button>
+      <button class="filter-pill" data-filter="chinese">🥢 Chinese</button>
+      <button class="filter-pill" data-filter="healthy">🥗 Healthy</button>
     </div>
 
     <div class="row">
@@ -204,7 +193,8 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=2.2"></script>
+  <script src="js/chatbot.js?v=2.2"></script>
   <script>
     let currentCuisine = 'all';
 
@@ -238,22 +228,27 @@
         grid.innerHTML += `
           <div class="col-md-6 col-xl-4" data-cuisine="${r.cuisine}">
             <a href="restaurant-detail.php?id=${r.id}" class="text-decoration-none">
-              <div class="restaurant-card">
+              <div class="restaurant-card h-100">
                 <div class="card-img-wrapper">
                   <img src="${r.image}" alt="${r.name}" loading="lazy">
                   <button class="fav-btn" title="Add to favorites"><i class="bi bi-heart"></i></button>
-                  <span class="delivery-badge"><i class="bi bi-clock me-1"></i>${r.deliveryTime}</span>
+                  ${r.deliveryFee === 0 ? '<span class="position-absolute top-0 end-0 m-2 badge rounded-pill" style="background:var(--primary-green);font-size:0.75rem;">Free Delivery</span>' : ''}
                 </div>
                 <div class="p-3">
-                  <h5 class="text-dark mb-1">${r.name}</h5>
-                  <div class="restaurant-meta">
-                    <span class="rating fw-bold text-dark"><i class="bi bi-star-fill text-warning"></i> ${r.rating}</span>
-                    <span class="cuisine-tag">${r.cuisine}</span>
-                    <span class="fw-semibold" style="color:var(--primary-color)">$${r.deliveryFee === 0 ? 'Free' : r.deliveryFee.toFixed(2)} delivery</span>
+                  <div class="d-flex justify-content-between align-items-start mb-1">
+                    <h5 class="text-dark mb-0 fw-bold" style="font-family:'Inter',sans-serif;font-size:1rem;">${r.name}</h5>
+                    <div class="rating-box d-flex align-items-center px-2 py-1 rounded" style="background:var(--beige);font-size:0.82rem;white-space:nowrap;">
+                      <i class="bi bi-star-fill text-warning me-1"></i> ${r.rating}
+                    </div>
                   </div>
-                  <p class="mt-2 mb-0 small text-muted">
-                    <i class="bi bi-geo-alt me-1"></i>${r.address}
-                  </p>
+                  <p class="mb-2"><span class="cuisine-tag">${r.cuisine}</span></p>
+                  <div class="d-flex align-items-center gap-3 text-muted small">
+                    <span><i class="bi bi-clock me-1"></i>${r.deliveryTime}</span>
+                    <span><i class="bi bi-bicycle me-1"></i>${r.deliveryFee === 0 ? 'Free' : '$'+r.deliveryFee.toFixed(2)}</span>
+                  </div>
+                  <div class="mt-3">
+                    <button class="btn btn-outline-custom w-100 rounded-pill" style="font-size:0.88rem;">View Menu</button>
+                  </div>
                 </div>
               </div>
             </a>
@@ -305,6 +300,7 @@
     });
 
     document.addEventListener('DOMContentLoaded', () => renderRestaurants(RESTAURANTS));
+    window.addEventListener('restaurantsLoaded', (e) => renderRestaurants(e.detail));
   </script>
 </body>
 </html>

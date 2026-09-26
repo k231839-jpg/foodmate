@@ -60,18 +60,33 @@ const DEFAULT_RESTAURANTS = [
   }
 ];
 
-// Fetch restaurants from PHP API instead of localStorage
-let RESTAURANTS = [];
+// Initialize RESTAURANTS with rich default data immediately
+let RESTAURANTS = JSON.parse(JSON.stringify(DEFAULT_RESTAURANTS));
 
 async function loadRestaurants() {
     try {
         const response = await fetch('api/restaurants.php?action=list');
         const data = await response.json();
-        if (data.success) {
-            RESTAURANTS = data.restaurants;
+        if (data.success && Array.isArray(data.restaurants) && data.restaurants.length > 0) {
+            RESTAURANTS = data.restaurants.map((r, idx) => {
+                const def = DEFAULT_RESTAURANTS.find(d => d.id === parseInt(r.RestaurantID || r.id)) || DEFAULT_RESTAURANTS[idx % DEFAULT_RESTAURANTS.length];
+                return {
+                    id: parseInt(r.RestaurantID || r.id || def.id),
+                    name: r.Name || r.name || def.name,
+                    cuisine: r.CuisineType || r.cuisine || def.cuisine,
+                    rating: parseFloat(r.Rating || r.rating || def.rating || 4.8),
+                    deliveryTime: r.deliveryTime || def.deliveryTime || "20-30 min",
+                    deliveryFee: typeof r.deliveryFee !== 'undefined' ? parseFloat(r.deliveryFee) : (def.deliveryFee || 2.50),
+                    address: r.Address || r.address || def.address,
+                    image: r.ImageURL || r.image || def.image,
+                    menu: r.menu || def.menu || [],
+                    reviews: r.reviews || def.reviews || []
+                };
+            });
+            window.dispatchEvent(new CustomEvent('restaurantsLoaded', { detail: RESTAURANTS }));
         }
     } catch (e) {
-        console.error("Failed to load restaurants from API:", e);
+        console.warn("Using default restaurants fallback:", e);
     }
 }
 

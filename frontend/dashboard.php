@@ -1,3 +1,7 @@
+<?php
+$required_role = 'customer';
+require_once 'auth_check.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +11,9 @@
   <title>Food Mate — My Account & Saved Addresses</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.css?v=2.2" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Demo Role Simulator Bar -->
-  <div class="role-demo-bar text-center">
-    <div class="container d-flex justify-content-between align-items-center flex-wrap">
-      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
-      <div class="d-flex gap-2">
-        <a href="index.php" class="active"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
-      </div>
-    </div>
-  </div>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-foodmate sticky-top" id="mainNav">
@@ -38,7 +29,7 @@
           <li class="nav-item"><a class="nav-link active" href="dashboard.php">My Account</a></li>
         </ul>
         <div class="d-flex align-items-center gap-2">
-          <a href="login.php" class="btn btn-outline-danger btn-sm">Sign Out</a>
+          <a href="logout.php" class="btn btn-outline-danger btn-sm">Sign Out</a>
         </div>
       </div>
     </div>
@@ -52,7 +43,7 @@
           <div class="stat-icon primary mx-auto mb-3" style="width:70px; height:70px; font-size:2rem;">
             <i class="bi bi-person-fill"></i>
           </div>
-          <h5 class="fw-bold mb-1" id="custProfileName">Alex Johnson</h5>
+          <h5 class="fw-bold mb-1" id="custProfileName"><?php echo $auth_name; ?></h5>
           <p class="text-muted small mb-3">Customer Account • Melbourne</p>
           <span class="badge bg-success px-3 py-2"><i class="bi bi-shield-check me-1"></i> Verified User</span>
         </div>
@@ -171,7 +162,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=2.2"></script>
   <script>
     function saveCustomerProfile(e) {
       e.preventDefault();

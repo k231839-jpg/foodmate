@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Forgot Password</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2.2">
 </head>
 <body class="glass-panel">
     <h2>Forgot Your Password?</h2>

@@ -7,22 +7,9 @@
   <title>Food Mate — Live Order Tracking</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.css?v=2.2" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Demo Role Simulator Bar -->
-  <div class="role-demo-bar text-center">
-    <div class="container d-flex justify-content-between align-items-center flex-wrap">
-      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
-      <div class="d-flex gap-2">
-        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
-      </div>
-    </div>
-  </div>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-foodmate sticky-top" id="mainNav">
@@ -188,7 +175,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=2.2"></script>
   <script>
     function loadOrderTracking() {
       const orders = JSON.parse(localStorage.getItem('fm_orders')) || [];

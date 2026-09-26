@@ -1,3 +1,8 @@
+<?php
+$required_role = 'restaurant';
+require_once 'auth_check.php';
+$resName = $auth_name;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +12,9 @@
   <title>Food Mate — Restaurant Partner Portal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.css?v=2.2" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Demo Role Simulator Bar -->
-  <div class="role-demo-bar text-center">
-    <div class="container d-flex justify-content-between align-items-center flex-wrap">
-      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
-      <div class="d-flex gap-2">
-        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.php" class="active"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
-      </div>
-    </div>
-  </div>
 
   <div class="dashboard-layout">
     <!-- Sidebar -->
@@ -31,7 +23,7 @@
         <i class="bi bi-shop text-warning fs-3"></i>
         <div>
           <div>Restaurant Portal</div>
-          <small style="font-size:0.7rem; color:#94a3b8; font-weight:normal;">Luigi's Pizzeria</small>
+          <small style="font-size:0.75rem; color:#facc15; font-weight:600;"><i class="bi bi-shop me-1"></i> <?= $resName ?></small>
         </div>
       </div>
       <ul class="sidebar-nav">
@@ -39,7 +31,7 @@
         <li><a href="#" onclick="showResSection('menuSec', this)"><i class="bi bi-book me-2"></i>Menu Management (LL FR 3.2)</a></li>
         <li><a href="#" onclick="showResSection('promoSec', this)"><i class="bi bi-tag me-2"></i>Promotions & Deals (LL FR 3.4)</a></li>
         <li><a href="#" onclick="showResSection('profileSec', this)"><i class="bi bi-gear me-2"></i>Restaurant Profile (LL FR 3.1)</a></li>
-        <li class="mt-4 border-top border-secondary pt-3"><a href="index.php" class="text-danger"><i class="bi bi-box-arrow-left me-2"></i>Exit Dashboard</a></li>
+        <li class="mt-4 border-top border-secondary pt-3"><a href="logout.php?role=restaurant" class="text-danger fw-semibold"><i class="bi bi-box-arrow-left me-2"></i>Sign Out</a></li>
       </ul>
     </div>
 
@@ -51,6 +43,11 @@
           <button class="btn btn-dark d-lg-none" id="sidebarToggle"><i class="bi bi-list"></i></button>
           <h4 class="mb-0 fw-bold" id="resHeaderTitle">Live Order Queue</h4>
         </div>
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge bg-success px-3 py-2"><i class="bi bi-wifi me-1"></i> Orders Live</span>
+          <a href="logout.php?role=restaurant" class="btn btn-outline-danger btn-sm ms-2"><i class="bi bi-box-arrow-right me-1"></i> Sign Out</a>
+        </div>
+      </div>
         <div class="d-flex align-items-center gap-3">
           <div class="form-check form-switch mb-0">
             <input class="form-check-input" type="checkbox" id="resOnlineSwitch" checked onchange="toggleStoreStatus(this)">
@@ -247,7 +244,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=2.2"></script>
   <script>
     function showResSection(secId, navLink) {
       document.querySelectorAll('.res-section').forEach(s => s.style.display = 'none');

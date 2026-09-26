@@ -7,22 +7,9 @@
   <title>Food Mate — Sign In / Register</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.css?v=2.2" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Demo Role Simulator Bar -->
-  <div class="role-demo-bar text-center">
-    <div class="container d-flex justify-content-between align-items-center flex-wrap">
-      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
-      <div class="d-flex gap-2">
-        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
-        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
-        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
-        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
-      </div>
-    </div>
-  </div>
 
   <div class="auth-page">
     <!-- Left: Image Side -->
@@ -68,14 +55,14 @@
             </div>
             <div class="mb-3">
               <label class="form-label-dark text-white">Email Address</label>
-              <input type="email" class="form-control form-control-dark bg-dark text-white border-secondary" placeholder="user@foodmate.com.au" id="loginEmail" required value="alex.johnson@example.com">
+              <input type="email" class="form-control form-control-dark bg-dark text-white border-secondary" placeholder="user@foodmate.com.au" id="loginEmail" required>
             </div>
             <div class="mb-3">
               <div class="d-flex justify-content-between align-items-center">
                 <label class="form-label-dark text-white">Password</label>
                 <a href="#" class="small text-info text-decoration-none" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Password?</a>
               </div>
-              <input type="password" class="form-control form-control-dark bg-dark text-white border-secondary" placeholder="••••••••" id="loginPassword" required value="password123">
+              <input type="password" class="form-control form-control-dark bg-dark text-white border-secondary" placeholder="••••••••" id="loginPassword" required>
             </div>
             <div class="form-check mb-4">
               <input class="form-check-input bg-dark border-secondary" type="checkbox" id="rememberMe" checked>
@@ -172,7 +159,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=2.2"></script>
   <script>
     function switchAuthTab(mode) {
       const loginCard = document.getElementById('loginCard');
@@ -197,29 +184,73 @@
       }
     }
 
-    function handleLogin(e) {
+    async function handleLogin(e) {
       e.preventDefault();
-      const role = document.getElementById('loginRole').value;
-      showToast(`Logged in successfully as ${role.toUpperCase()}!`, 'success');
-      setTimeout(() => {
-        if (role === 'restaurant') window.location.href = 'restaurant-dashboard.php';
-        else if (role === 'delivery') window.location.href = 'delivery-dashboard.php';
-        else if (role === 'admin') window.location.href = 'admin-dashboard.php';
-        else window.location.href = 'dashboard.php';
-      }, 1200);
+      const role     = document.getElementById('loginRole').value;
+      const email    = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Signing in...';
+
+      try {
+        const formData = new FormData();
+        formData.append('role', role);
+        formData.append('email', email);
+        formData.append('password', password);
+
+        const res  = await fetch('api/auth.php?action=login', { method: 'POST', body: formData });
+        const data = await res.json();
+
+        if (data.success) {
+          showToast(`Logged in successfully as ${role.toUpperCase()}!`, 'success');
+          setTimeout(() => { window.location.href = data.redirect; }, 800);
+        } else {
+          showToast(data.message || 'Invalid credentials. Please try again.', 'error');
+          btn.disabled = false;
+          btn.innerHTML = '<i class="bi bi-box-arrow-in-right me-2"></i>Sign In to Account';
+        }
+      } catch (err) {
+        showToast('Connection error. Please try again.', 'error');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="bi bi-box-arrow-in-right me-2"></i>Sign In to Account';
+      }
     }
 
-    function handleRegister(e) {
+    async function handleRegister(e) {
       e.preventDefault();
-      const role = document.querySelector('input[name="userRole"]:checked').value;
-      const name = document.getElementById('regName').value;
-      showToast(`Account created for ${name} as ${role.toUpperCase()}!`, 'success');
-      setTimeout(() => {
-        if (role === 'restaurant') window.location.href = 'restaurant-dashboard.php';
-        else if (role === 'delivery') window.location.href = 'delivery-dashboard.php';
-        else if (role === 'admin') window.location.href = 'admin-dashboard.php';
-        else window.location.href = 'dashboard.php';
-      }, 1200);
+      const role     = document.querySelector('input[name="userRole"]:checked').value;
+      const name     = document.getElementById('regName').value;
+      const email    = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Creating account...';
+
+      try {
+        const formData = new FormData();
+        formData.append('role', role);
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('password', password);
+
+        const res  = await fetch('api/auth.php?action=register', { method: 'POST', body: formData });
+        const data = await res.json();
+
+        if (data.success) {
+          showToast('Account created! Please sign in.', 'success');
+          setTimeout(() => switchAuthTab('signin'), 1200);
+        } else {
+          showToast(data.message || 'Registration failed.', 'error');
+        }
+      } catch (err) {
+        showToast('Connection error. Please try again.', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="bi bi-person-plus me-2"></i>Complete Registration';
+      }
     }
 
     function sendPasswordReset() {

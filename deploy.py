@@ -6,21 +6,35 @@ port = 2222
 username = 'mehedih3_cpro306_g10'
 password = 'cpro306'
 
-base_local_path = 'c:\\Users\\brgul\\OneDrive\\Desktop\\foodmate'
-remote_base_path = '.'
+base_local_path = r'c:\Users\Acer\Desktop\Foodmate'
+remote_base_path = 'public_html'
 
 dirs_to_upload = [
     ('frontend', ''), # upload contents of frontend directly
     ('api', 'api')    # upload api to api subdirectory
 ]
-def sftp_upload_dir(sftp, local_dir, remote_dir):
-    try:
-        sftp.stat(remote_dir)
-    except IOError:
+def mkdir_p(sftp, remote_path):
+    """Recursively create remote directories."""
+    dirs = []
+    path = remote_path
+    while True:
         try:
-            sftp.mkdir(remote_dir)
-        except Exception as e:
-            print(f"Could not create dir {remote_dir}: {e}")
+            sftp.stat(path)
+            break
+        except IOError:
+            dirs.append(path)
+            path = '/'.join(path.split('/')[:-1])
+            if not path:
+                break
+    for d in reversed(dirs):
+        try:
+            sftp.mkdir(d)
+            print(f"Created remote dir: {d}")
+        except Exception:
+            pass
+
+def sftp_upload_dir(sftp, local_dir, remote_dir):
+    mkdir_p(sftp, remote_dir)
     
     for item in os.listdir(local_dir):
         local_item = os.path.join(local_dir, item)

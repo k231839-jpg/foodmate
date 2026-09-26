@@ -7,7 +7,7 @@ $token = $_GET['token'] ?? '';
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2.2">
 </head>
 <body class="glass-panel">
     <h2>Reset Your Password</h2>
