@@ -7,7 +7,7 @@
   <title>Food Mate ΓÇö Zero Service Fee Food Delivery</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css?v=1.1" rel="stylesheet">
+  <link href="css/style.css?v=1.2" rel="stylesheet">
 </head>
 <body>
 
@@ -123,14 +123,14 @@
 
         <a href="restaurants.php?filter=asian" class="category-item text-center text-decoration-none">
           <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden" style="width: 70px; height: 70px;">
-            <img src="https://images.unsplash.com/photo-1555126634-f5826620f57c?auto=format&fit=crop&w=150&q=80" alt="Asian" class="w-100 h-100 object-fit-cover">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=150&q=80" alt="Asian" class="w-100 h-100 object-fit-cover">
           </div>
           <span class="fw-bold text-dark small">Asian</span>
         </a>
 
         <a href="restaurants.php?filter=indian" class="category-item text-center text-decoration-none">
           <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden" style="width: 70px; height: 70px;">
-            <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc8?auto=format&fit=crop&w=150&q=80" alt="Indian" class="w-100 h-100 object-fit-cover">
+            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=150&q=80" alt="Indian" class="w-100 h-100 object-fit-cover">
           </div>
           <span class="fw-bold text-dark small">Indian</span>
         </a>
@@ -151,7 +151,7 @@
         
         <a href="restaurants.php?filter=breakfast" class="category-item text-center text-decoration-none">
           <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden" style="width: 70px; height: 70px;">
-            <img src="https://images.unsplash.com/photo-1550026210-9080e72c8427?auto=format&fit=crop&w=150&q=80" alt="Breakfast" class="w-100 h-100 object-fit-cover">
+            <img src="https://images.unsplash.com/photo-1533089859705-ba39266ad815?auto=format&fit=crop&w=150&q=80" alt="Breakfast" class="w-100 h-100 object-fit-cover">
           </div>
           <span class="fw-bold text-dark small">Breakfast</span>
         </a>
