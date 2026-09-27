@@ -130,15 +130,15 @@
             <div class="d-flex flex-column gap-2">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="filterVegan" onchange="applyFilters()">
-                <label class="form-check-label small" for="filterVegan" style="color:var(--text-dark)">≡ƒÑ¼ Vegan Friendly</label>
+                <label class="form-check-label small" for="filterVegan" style="color:var(--text-dark)">🌱 Vegan Friendly</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="filterGF" onchange="applyFilters()">
-                <label class="form-check-label small" for="filterGF" style="color:var(--text-dark)">≡ƒî╛ Gluten-Free</label>
+                <label class="form-check-label small" for="filterGF" style="color:var(--text-dark)">🌾 Gluten-Free</label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="filterHalal" onchange="applyFilters()">
-                <label class="form-check-label small" for="filterHalal" style="color:var(--text-dark)">≡ƒòî Halal Certified</label>
+                <label class="form-check-label small" for="filterHalal" style="color:var(--text-dark)">🟢 Halal Certified</label>
               </div>
             </div>
           </div>
