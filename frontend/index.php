@@ -57,48 +57,181 @@
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero-section text-start">
-    <div class="container">
-      <div class="row align-items-center justify-content-start">
+  <header class="hero-section text-start position-relative overflow-hidden">
+    <div class="container position-relative" style="z-index: 2;">
+      <div class="row align-items-center">
         <div class="col-lg-7 col-md-9">
-          <span class="badge rounded-pill bg-warning text-dark px-3 py-2 fw-semibold mb-3">
+          <span class="badge rounded-pill bg-warning text-dark px-3 py-2 fw-semibold mb-3 mt-4" style="animation: fadeIn 1s ease-out;">
             <i class="bi bi-stars me-1"></i> Melbourne's Favorite Food Network
           </span>
-          <h1 class="hero-title">Delicious Food<br><span class="highlight">Delivered</span> to You</h1>
-          <p class="hero-subtitle">Discover amazing local restaurants, delicious meals and exclusive deals — all in one place.</p>
+          <h1 class="hero-title" style="animation: fadeIn 1.2s ease-out;">Delicious Food<br><span class="highlight">Delivered</span> to You</h1>
+          <p class="hero-subtitle mb-4" style="animation: fadeIn 1.3s ease-out; max-width: 500px; font-size: 1.15rem;">Discover amazing local restaurants, delicious meals and exclusive deals — with zero service fees.</p>
           
-          <div class="glass-panel p-3 d-flex align-items-center shadow-lg" style="max-width: 600px; border-radius: 50px; animation: fadeIn 1.4s ease-out;">
-            <i class="bi bi-geo-alt-fill text-danger fs-4 ms-2 me-3"></i>
-            <input type="text" class="form-control border-0 bg-transparent fs-5" placeholder="Enter your delivery address" id="heroAddressInput">
-            <a href="restaurants.php" class="btn-primary-custom text-decoration-none ms-2 text-nowrap py-3 px-4" style="border-radius: 40px;">
-              <i class="bi bi-search me-1"></i> Find Food
+          <div class="bg-white p-2 d-flex align-items-center shadow-lg mb-4 position-relative" style="max-width: 600px; border-radius: 50px; animation: fadeIn 1.4s ease-out; z-index: 5;">
+            <i class="bi bi-geo-alt text-muted fs-5 ms-3 me-2"></i>
+            <input type="text" class="form-control border-0 bg-transparent shadow-none fs-5 py-2" placeholder="Enter your delivery address" id="heroAddressInput">
+            <a href="restaurants.php" class="btn-primary-custom text-decoration-none ms-2 text-nowrap py-3 px-5 d-flex align-items-center" style="border-radius: 40px; font-weight: 600; font-size: 1.1rem; background: var(--primary-color);">
+              Find Food <i class="bi bi-arrow-right ms-2"></i>
             </a>
           </div>
 
-          <div class="mt-4 d-flex justify-content-start gap-4 text-white small fw-medium flex-wrap" style="animation: fadeIn 1.6s ease-out;">
-            <span><i class="bi bi-check-circle-fill text-success me-1"></i> No Hidden Fees</span>
-            <span><i class="bi bi-check-circle-fill text-success me-1"></i> Verified Local Chefs</span>
-            <span><i class="bi bi-check-circle-fill text-success me-1"></i> Live Order Tracking</span>
+          <div class="mt-4 d-flex justify-content-start gap-4 text-white small fw-semibold flex-wrap" style="animation: fadeIn 1.6s ease-out; margin-bottom: 80px;">
+            <div class="d-flex align-items-center">
+              <div class="bg-transparent border border-warning text-warning rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;"><i class="bi bi-currency-dollar"></i></div>
+              <div class="lh-sm">Zero<br><span class="text-white-50 fw-normal">service fees</span></div>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="bg-transparent border border-warning text-warning rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;"><i class="bi bi-shop"></i></div>
+              <div class="lh-sm">Local<br><span class="text-white-50 fw-normal">restaurants</span></div>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="bg-transparent border border-warning text-warning rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;"><i class="bi bi-tags"></i></div>
+              <div class="lh-sm">Exclusive<br><span class="text-white-50 fw-normal">deals</span></div>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="bg-transparent border border-warning text-warning rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;"><i class="bi bi-bicycle"></i></div>
+              <div class="lh-sm">Fast<br><span class="text-white-50 fw-normal">delivery</span></div>
+            </div>
           </div>
+        </div>
+        <div class="col-lg-5 position-relative d-none d-lg-block">
+          <!-- Hero Image -->
+          <img src="img/hero_burger.jpg" alt="Hero Burger" class="img-fluid" style="transform: scale(1.6) translateX(15%); animation: fadeInRight 1.5s ease-out; pointer-events: none; mix-blend-mode: normal; -webkit-mask-image: radial-gradient(circle, black 60%, transparent 80%); mask-image: radial-gradient(circle, black 60%, transparent 80%);">
         </div>
       </div>
     </div>
   </header>
 
   <!-- Categories -->
-  <section class="py-5">
+  <section class="categories-section position-relative" style="margin-top: -60px; z-index: 10;">
     <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="mb-0">Browse by Category</h3>
-        <a href="restaurants.php" class="text-decoration-none fw-bold" style="color: var(--primary-color)">All Cuisines <i class="bi bi-arrow-right"></i></a>
+      <div class="bg-white rounded-pill shadow-lg p-3 px-4 d-flex justify-content-between align-items-center category-scroll" style="overflow-x: auto; white-space: nowrap;">
+        
+        <a href="restaurants.php?filter=burgers" class="category-item text-center text-decoration-none active">
+          <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden" style="width: 70px; height: 70px; border: 2px solid transparent;">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=150&q=80" alt="Burgers" class="w-100 h-100 object-fit-cover">
+          </div>
+          <span class="fw-bold text-dark small">Burgers</span>
+        </a>
+
+        <a href="restaurants.php?filter=pizza" class="category-item text-center text-decoration-none">
+          <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden" style="width: 70px; height: 70px;">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=150&q=80" alt="Pizza" class="w-100 h-100 object-fit-cover">
+          </div>
+          <span class="fw-bold text-dark small">Pizza</span>
+        </a>
+
+        <a href="restaurants.php?filter=asian" class="category-item text-center text-decoration-none">
+          <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden" style="width: 70px; height: 70px;">
+            <img src="https://images.unsplash.com/photo-1555126634-f5826620f57c?auto=format&fit=crop&w=150&q=80" alt="Asian" class="w-100 h-100 object-fit-cover">
+          </div>
+          <span class="fw-bold text-dark small">Asian</span>
+        </a>
+
+        <a href="restaurants.php?filter=indian" class="category-item text-center text-decoration-none">
+          <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden" style="width: 70px; height: 70px;">
+            <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc8?auto=format&fit=crop&w=150&q=80" alt="Indian" class="w-100 h-100 object-fit-cover">
+          </div>
+          <span class="fw-bold text-dark small">Indian</span>
+        </a>
+
+        <a href="restaurants.php?filter=healthy" class="category-item text-center text-decoration-none">
+          <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden" style="width: 70px; height: 70px;">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=150&q=80" alt="Healthy" class="w-100 h-100 object-fit-cover">
+          </div>
+          <span class="fw-bold text-dark small">Healthy</span>
+        </a>
+
+        <a href="restaurants.php?filter=desserts" class="category-item text-center text-decoration-none">
+          <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden" style="width: 70px; height: 70px;">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=150&q=80" alt="Desserts" class="w-100 h-100 object-fit-cover">
+          </div>
+          <span class="fw-bold text-dark small">Desserts</span>
+        </a>
+        
+        <a href="restaurants.php?filter=breakfast" class="category-item text-center text-decoration-none">
+          <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden" style="width: 70px; height: 70px;">
+            <img src="https://images.unsplash.com/photo-1550026210-9080e72c8427?auto=format&fit=crop&w=150&q=80" alt="Breakfast" class="w-100 h-100 object-fit-cover">
+          </div>
+          <span class="fw-bold text-dark small">Breakfast</span>
+        </a>
+        
+        <a href="restaurants.php" class="category-item text-center text-decoration-none">
+          <div class="cat-img-wrapper rounded-circle mx-auto mb-2 overflow-hidden bg-light d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; border: 1px solid #e2e8f0;">
+            <i class="bi bi-three-dots fs-3 text-muted"></i>
+          </div>
+          <span class="fw-bold text-dark small">More</span>
+        </a>
+
       </div>
-      <div class="d-flex flex-wrap gap-3">
-        <a href="restaurants.php?filter=all" class="filter-pill active text-decoration-none"><i class="bi bi-star-fill text-warning me-1"></i> All Top Rated</a>
-        <a href="restaurants.php?filter=italian" class="filter-pill text-decoration-none">≡ƒìò Italian & Pizza</a>
-        <a href="restaurants.php?filter=american" class="filter-pill text-decoration-none">≡ƒìö Gourmet Burgers</a>
-        <a href="restaurants.php?filter=japanese" class="filter-pill text-decoration-none">≡ƒìú Japanese & Sushi</a>
-        <a href="restaurants.php?filter=indian" class="filter-pill text-decoration-none">≡ƒì¢ Indian Curry</a>
-        <a href="restaurants.php?filter=mexican" class="filter-pill text-decoration-none">≡ƒî« Mexican Tacos</a>
+    </div>
+  </section>
+  
+  <style>
+    .category-scroll::-webkit-scrollbar { display: none; }
+    .category-item { transition: transform 0.3s ease; padding: 10px 15px; border-radius: 20px; text-decoration: none; display: inline-block;}
+    .category-item:hover { transform: translateY(-3px); }
+    .category-item.active { background-color: var(--primary-color); }
+    .category-item.active .text-dark { color: white !important; }
+    .category-item.active .cat-img-wrapper { border-color: white !important; }
+    .object-fit-cover { object-fit: cover; }
+    
+    .promo-banner {
+      background: linear-gradient(135deg, #FF1A1A 0%, #FF682D 100%);
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+    .promo-content { position: relative; z-index: 2; padding: 40px; }
+    .promo-img {
+      position: absolute;
+      right: -5%;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 140%;
+      object-fit: contain;
+      z-index: 1;
+      pointer-events: none;
+    }
+  </style>
+
+  <!-- Promotional Banner -->
+  <section class="py-4 mt-2">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="promo-banner shadow-lg text-white h-100 d-flex align-items-center" style="min-height: 220px;">
+            <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=800&q=80" alt="Pizza" class="promo-img" style="border-radius: 50%;">
+            <div class="promo-content w-100">
+              <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-2 shadow-sm" style="font-size: 0.9rem;">New here?</span>
+              <h2 class="display-5 fw-bold mb-1" style="text-shadow: 0 2px 10px rgba(0,0,0,0.2);">Get <span class="text-warning">50% OFF</span></h2>
+              <p class="fs-5 mb-3 fw-medium">on your first order</p>
+              <div class="bg-white rounded-pill d-inline-flex align-items-center overflow-hidden shadow-sm p-1 ps-3">
+                <span class="text-muted small fw-bold me-2">Use code</span>
+                <span class="fw-bold fs-5 text-dark me-3">FOODMATE50</span>
+                <button class="btn btn-light rounded-circle border p-2" onclick="navigator.clipboard.writeText('FOODMATE50'); alert('Code copied!')" title="Copy Code">
+                  <i class="bi bi-files"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="bg-white rounded-4 shadow-sm p-4 h-100 border d-flex flex-column justify-content-center gap-4">
+            <div class="d-flex align-items-center gap-3">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;"><i class="bi bi-truck fs-4"></i></div>
+              <div class="lh-sm"><span class="fw-bold text-dark fs-5">Free delivery</span><br><span class="text-muted small">on selected restaurants</span></div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;"><i class="bi bi-currency-dollar fs-4"></i></div>
+              <div class="lh-sm"><span class="fw-bold text-dark fs-5">Zero service fees</span><br><span class="text-muted small">Always.</span></div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;"><i class="bi bi-gift fs-4"></i></div>
+              <div class="lh-sm"><span class="fw-bold text-dark fs-5">Exclusive deals</span><br><span class="text-muted small">Every week.</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -204,19 +337,31 @@
     document.addEventListener('DOMContentLoaded', () => {
       const grid = document.getElementById('indexFeaturedGrid');
       if (grid && typeof RESTAURANTS !== 'undefined') {
-        grid.innerHTML = RESTAURANTS.map(r => `
-          <div class="col-md-4">
+        grid.innerHTML = RESTAURANTS.slice(0, 4).map(r => `
+          <div class="col-md-6 col-lg-3">
             <a href="restaurant-detail.php?id=${r.id}" class="text-decoration-none">
-              <div class="restaurant-card">
-                <div class="card-img-wrapper">
-                  <img src="${r.image}" alt="${r.name}">
-                  <div class="rating-badge"><i class="bi bi-star-fill"></i> ${r.rating}</div>
-                  <div class="delivery-time"><i class="bi bi-clock me-1"></i>${r.deliveryTime}</div>
+              <div class="restaurant-card bg-white border-0 shadow-sm rounded-4 overflow-hidden h-100 position-relative transition-all">
+                <div class="position-relative" style="height: 160px;">
+                  <img src="${r.image}" alt="${r.name}" class="w-100 h-100 object-fit-cover">
+                  <div class="position-absolute top-0 end-0 p-2">
+                    <button class="btn btn-light btn-sm rounded-circle shadow-sm" style="width: 32px; height: 32px; padding: 0;"><i class="bi bi-heart fs-6"></i></button>
+                  </div>
+                  <div class="position-absolute bottom-0 start-0 p-2">
+                    <div class="bg-white rounded-pill px-2 py-1 shadow-sm d-inline-flex align-items-center" style="font-size: 0.8rem; font-weight: 700;">
+                      <i class="bi bi-star-fill text-warning me-1"></i> ${r.rating} <span class="text-muted fw-normal ms-1">(${Math.floor(Math.random() * 400 + 100)})</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="p-3">
-                  <h5 class="text-dark mb-1">${r.name}</h5>
-                  <p class="text-muted mb-1" style="font-size:0.88rem;">${r.cuisine} ΓÇó $${r.deliveryFee.toFixed(2)} delivery</p>
-                  <small style="color:var(--text-muted)"><i class="bi bi-geo-alt me-1"></i>${r.address}</small>
+                <div class="p-3 pb-2">
+                  <h5 class="text-dark fw-bold mb-1">${r.name}</h5>
+                  <p class="text-muted mb-2 small">${r.cuisine.replace(',', ' • ')}</p>
+                  <div class="d-flex align-items-center text-muted small fw-medium mb-3">
+                    <span class="d-flex align-items-center me-3"><i class="bi bi-clock me-1 fs-6"></i> ${r.deliveryTime}</span>
+                    <span class="d-flex align-items-center"><i class="bi bi-bicycle me-1 fs-6"></i> $${r.deliveryFee.toFixed(2)} delivery</span>
+                  </div>
+                  <div class="rounded-3 px-2 py-1 small fw-bold d-inline-flex align-items-center" style="background-color: ${r.id % 2 === 0 ? '#FFE5E5' : '#E5F5E5'}; color: ${r.id % 2 === 0 ? '#D32F2F' : '#2E7D32'};">
+                    <i class="bi bi-tag-fill me-1"></i> ${r.id % 2 === 0 ? '20% OFF selected items' : 'Free delivery over $30'}
+                  </div>
                 </div>
               </div>
             </a>
