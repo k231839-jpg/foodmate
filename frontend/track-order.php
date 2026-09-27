@@ -1,15 +1,28 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Track your Food Mate delivery in real-time with live progress and driver map simulation.">
-  <title>Food Mate — Live Order Tracking</title>
+  <title>Food Mate ΓÇö Live Order Tracking</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css?v=2.2" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Demo Role Simulator Bar -->
+  <div class="role-demo-bar text-center">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
+      <div class="d-flex gap-2">
+        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+      </div>
+    </div>
+  </div>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-foodmate sticky-top" id="mainNav">
@@ -28,7 +41,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
       <div>
         <h2 class="fw-bold mb-1">Live Order Tracking (LL FR 2.6)</h2>
-        <p class="text-muted mb-0">Order ID: <strong style="color:var(--primary-color)" id="trackOrderId">FM-8092</strong> • Placed on <span id="trackOrderDate">Today 12:45 PM</span></p>
+        <p class="text-muted mb-0">Order ID: <strong style="color:var(--primary-color)" id="trackOrderId">FM-8092</strong> ΓÇó Placed on <span id="trackOrderDate">Today 12:45 PM</span></p>
       </div>
       <div class="d-flex gap-2">
         <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#cancelOrderModal"><i class="bi bi-x-circle me-1"></i> Cancel / Refund</button>
@@ -105,7 +118,7 @@
             <div class="stat-icon primary" style="width:50px; height:50px;"><i class="bi bi-person-fill fs-3"></i></div>
             <div>
               <h6 class="fw-bold mb-0" id="driverNameText">Michael Chang</h6>
-              <small class="text-muted">Toyota Prius • VIC 1AB2CD</small>
+              <small class="text-muted">Toyota Prius ΓÇó VIC 1AB2CD</small>
             </div>
           </div>
           <button class="btn btn-outline-custom w-100" onclick="showToast('Driver contacted: +61 400 123 456', 'info')">
@@ -175,7 +188,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js?v=2.2"></script>
+  <script src="js/app.js"></script>
   <script>
     function loadOrderTracking() {
       const orders = JSON.parse(localStorage.getItem('fm_orders')) || [];

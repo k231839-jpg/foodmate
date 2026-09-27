@@ -1,21 +1,29 @@
-<?php
-$required_role = 'admin';
-require_once 'auth_check.php';
-$adminName = $auth_name;
-?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Centralized Admin Dashboard on Food Mate for user management, order oversight, analytics, and moderation.">
-  <title>Food Mate — System Admin Dashboard</title>
+  <title>Food Mate ΓÇö System Admin Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css?v=2.2" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+
+  <!-- Demo Role Simulator Bar -->
+  <div class="role-demo-bar text-center">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
+      <div class="d-flex gap-2">
+        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php" class="active"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+      </div>
+    </div>
+  </div>
 
   <div class="dashboard-layout">
     <!-- Sidebar -->
@@ -24,7 +32,7 @@ $adminName = $auth_name;
         <i class="bi bi-shield-lock-fill text-danger fs-3"></i>
         <div>
           <div>Admin Dashboard</div>
-          <small style="font-size:0.75rem; color:#38bdf8; font-weight:600;"><i class="bi bi-person-check-fill me-1"></i> <?= $adminName ?></small>
+          <small style="font-size:0.7rem; color:#94a3b8; font-weight:normal;">System Administrator</small>
         </div>
       </div>
       <ul class="sidebar-nav">
@@ -35,7 +43,7 @@ $adminName = $auth_name;
         <li><a href="#" onclick="showAdminSec('commissionsSec', this)"><i class="bi bi-cash-coin me-2"></i>Commissions & Fees (LL FR 5.4)</a></li>
         <li><a href="#" onclick="showAdminSec('reviewsSec', this)"><i class="bi bi-chat-left-quote me-2"></i>Reviews Moderation (LL FR 5.5)</a></li>
         <li><a href="#" onclick="showAdminSec('announceSec', this)"><i class="bi bi-megaphone me-2"></i>Global Broadcast (LL FR 6.0)</a></li>
-        <li class="mt-4 border-top border-secondary pt-3"><a href="logout.php?role=admin" class="text-danger fw-semibold"><i class="bi bi-box-arrow-left me-2"></i>Sign Out</a></li>
+        <li class="mt-4 border-top border-secondary pt-3"><a href="index.php" class="text-danger"><i class="bi bi-box-arrow-left me-2"></i>Exit Admin Panel</a></li>
       </ul>
     </div>
 
@@ -50,7 +58,6 @@ $adminName = $auth_name;
         <div class="d-flex align-items-center gap-2">
           <button class="btn btn-outline-custom btn-sm" onclick="exportCSVReport()"><i class="bi bi-download me-1"></i> Export CSV Report</button>
           <span class="badge bg-success px-3 py-2 fw-bold"><i class="bi bi-check-circle me-1"></i> System Operational</span>
-          <a href="logout.php?role=admin" class="btn btn-outline-danger btn-sm ms-2"><i class="bi bi-box-arrow-right me-1"></i> Sign Out</a>
         </div>
       </div>
 
@@ -288,7 +295,7 @@ $adminName = $auth_name;
                   <tr>
                     <td class="fw-bold">REV-1</td>
                     <td>Sarah M.</td>
-                    <td><span class="text-warning">★★★★★</span> (5)</td>
+                    <td><span class="text-warning">ΓÿàΓÿàΓÿàΓÿàΓÿà</span> (5)</td>
                     <td>"Best wood-fired pizza in Melbourne! Delivered hot."</td>
                     <td>
                       <button class="btn btn-sm btn-outline-danger" onclick="deleteReviewRow(this)"><i class="bi bi-trash"></i> Delete Inappropriate</button>
@@ -328,8 +335,7 @@ $adminName = $auth_name;
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js?v=2.2"></script>
-  <script src="js/chatbot.js?v=2.2"></script>
+  <script src="js/app.js"></script>
   <script>
     function showAdminSec(secId, navLink) {
       document.querySelectorAll('.admin-section').forEach(s => s.style.display = 'none');

@@ -1,15 +1,28 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Complete your Food Mate order securely with zero service fees.">
-  <title>Food Mate — Checkout & Payment</title>
+  <title>Food Mate ΓÇö Checkout & Payment</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css?v=2.2" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Demo Role Simulator Bar -->
+  <div class="role-demo-bar text-center">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
+      <div class="d-flex gap-2">
+        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+      </div>
+    </div>
+  </div>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-foodmate sticky-top" id="mainNav">
@@ -35,8 +48,8 @@
           <div class="mb-3">
             <label class="form-label-dark">Select Saved Address</label>
             <select class="form-select form-control-dark" id="addressSelect">
-              <option value="Home">Home — 350 Elizabeth St, Melbourne VIC 3000</option>
-              <option value="Work">Work — 120 Collins St, Melbourne VIC 3000</option>
+              <option value="Home">Home ΓÇö 350 Elizabeth St, Melbourne VIC 3000</option>
+              <option value="Work">Work ΓÇö 120 Collins St, Melbourne VIC 3000</option>
               <option value="New">+ Enter New Address...</option>
             </select>
           </div>
@@ -82,7 +95,7 @@
             </div>
             <div class="mb-3">
               <label class="form-label-dark">Card Number</label>
-              <input type="text" class="form-control form-control-dark" id="cardNumber" value="4242 •••• •••• 4242" required>
+              <input type="text" class="form-control form-control-dark" id="cardNumber" value="4242 ΓÇóΓÇóΓÇóΓÇó ΓÇóΓÇóΓÇóΓÇó 4242" required>
             </div>
             <div class="row">
               <div class="col-6 mb-2">
@@ -160,7 +173,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js?v=2.2"></script>
+  <script src="js/app.js"></script>
   <script>
     let appliedDiscount = 0.00;
 

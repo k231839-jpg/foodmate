@@ -1,19 +1,28 @@
-<?php
-$required_role = 'delivery';
-require_once 'auth_check.php';
-?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Delivery Partner Driver Portal on Food Mate.">
-  <title>Food Mate — Delivery Partner Portal</title>
+  <title>Food Mate ΓÇö Delivery Partner Portal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="css/style.css?v=2.2" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Demo Role Simulator Bar -->
+  <div class="role-demo-bar text-center">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <span><i class="bi bi-person-badge-fill me-1" style="color:#38bdf8"></i> <strong>Role Switcher (LL FR Demo):</strong></span>
+      <div class="d-flex gap-2">
+        <a href="index.php"><i class="bi bi-person me-1"></i> Customer</a>
+        <a href="restaurant-dashboard.php"><i class="bi bi-shop me-1"></i> Restaurant Partner</a>
+        <a href="delivery-dashboard.php" class="active"><i class="bi bi-bicycle me-1"></i> Delivery Partner</a>
+        <a href="admin-dashboard.php"><i class="bi bi-shield-lock me-1"></i> System Admin</a>
+      </div>
+    </div>
+  </div>
 
   <div class="dashboard-layout">
     <!-- Sidebar -->
@@ -22,14 +31,14 @@ require_once 'auth_check.php';
         <i class="bi bi-bicycle text-info fs-3"></i>
         <div>
           <div>Driver Portal</div>
-          <small style="font-size:0.7rem; color:#94a3b8; font-weight:normal;"><?php echo $auth_name; ?></small>
+          <small style="font-size:0.7rem; color:#94a3b8; font-weight:normal;">Michael Chang</small>
         </div>
       </div>
       <ul class="sidebar-nav">
         <li><a href="#" class="active" onclick="showDriverSec('activeSec', this)"><i class="bi bi-geo-alt me-2"></i>Active Deliveries (LL FR 4.2)</a></li>
         <li><a href="#" onclick="showDriverSec('historySec', this)"><i class="bi bi-clock-history me-2"></i>Delivery History Log</a></li>
         <li><a href="#" onclick="showDriverSec('profileSec', this)"><i class="bi bi-person-gear me-2"></i>Driver Profile (LL FR 4.1)</a></li>
-        <li class="mt-4 border-top border-secondary pt-3"><a href="logout.php" class="text-danger"><i class="bi bi-box-arrow-left me-2"></i>Sign Out</a></li>
+        <li class="mt-4 border-top border-secondary pt-3"><a href="index.php" class="text-danger"><i class="bi bi-box-arrow-left me-2"></i>Exit Portal</a></li>
       </ul>
     </div>
 
@@ -133,8 +142,8 @@ require_once 'auth_check.php';
             <h5 class="fw-bold mb-3">New Assignment Requests</h5>
             <div class="p-3 border rounded bg-light d-flex justify-content-between align-items-center flex-wrap gap-2">
               <div>
-                <h6 class="fw-bold mb-1">Tokyo Bites → 210 Bourke St</h6>
-                <small class="text-muted">Est. Earnings: $14.50 • Distance: 2.1 km</small>
+                <h6 class="fw-bold mb-1">Tokyo Bites ΓåÆ 210 Bourke St</h6>
+                <small class="text-muted">Est. Earnings: $14.50 ΓÇó Distance: 2.1 km</small>
               </div>
               <div class="d-flex gap-2">
                 <button class="btn btn-success fw-bold" onclick="showToast('Delivery assignment accepted!', 'success')">Accept Job</button>
@@ -204,7 +213,7 @@ require_once 'auth_check.php';
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js?v=2.2"></script>
+  <script src="js/app.js"></script>
   <script>
     function showDriverSec(secId, navLink) {
       document.querySelectorAll('.driver-section').forEach(s => s.style.display = 'none');

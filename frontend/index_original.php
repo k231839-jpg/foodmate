@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -57,25 +57,25 @@
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero-section text-start">
+  <header class="hero-section text-center">
     <div class="container">
-      <div class="row align-items-center justify-content-start">
-        <div class="col-lg-7 col-md-9">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-9">
           <span class="badge rounded-pill bg-warning text-dark px-3 py-2 fw-semibold mb-3">
             <i class="bi bi-stars me-1"></i> Melbourne's Favorite Food Network
           </span>
-          <h1 class="hero-title">Delicious Food<br><span class="highlight">Delivered</span> to You</h1>
-          <p class="hero-subtitle">Discover amazing local restaurants, delicious meals and exclusive deals — all in one place.</p>
+          <h1 class="hero-title">Your favorite food, <span>delivered fast with $0 service fees.</span></h1>
+          <p class="hero-subtitle">Support local restaurants directly. Same meal, same restaurant, better deal.</p>
           
-          <div class="glass-panel p-3 d-flex align-items-center shadow-lg" style="max-width: 600px; border-radius: 50px; animation: fadeIn 1.4s ease-out;">
+          <div class="glass-panel p-3 d-flex align-items-center mx-auto shadow-lg" style="max-width: 650px; border-radius: 50px;">
             <i class="bi bi-geo-alt-fill text-danger fs-4 ms-2 me-3"></i>
-            <input type="text" class="form-control border-0 bg-transparent fs-5" placeholder="Enter your delivery address" id="heroAddressInput">
+            <input type="text" class="form-control border-0 bg-transparent fs-5" placeholder="Enter your delivery address in Melbourne..." id="heroAddressInput">
             <a href="restaurants.php" class="btn-primary-custom text-decoration-none ms-2 text-nowrap py-3 px-4" style="border-radius: 40px;">
               <i class="bi bi-search me-1"></i> Find Food
             </a>
           </div>
 
-          <div class="mt-4 d-flex justify-content-start gap-4 text-white small fw-medium flex-wrap" style="animation: fadeIn 1.6s ease-out;">
+          <div class="mt-4 d-flex justify-content-center gap-4 text-muted small fw-medium flex-wrap">
             <span><i class="bi bi-check-circle-fill text-success me-1"></i> No Hidden Fees</span>
             <span><i class="bi bi-check-circle-fill text-success me-1"></i> Verified Local Chefs</span>
             <span><i class="bi bi-check-circle-fill text-success me-1"></i> Live Order Tracking</span>
