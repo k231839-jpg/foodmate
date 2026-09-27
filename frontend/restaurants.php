@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -70,12 +70,12 @@
 
     <!-- Cuisine Filter Pills -->
     <div class="filter-pills" id="cuisineFilters">
-      <button class="filter-pill active" data-filter="all">≡ƒì╜∩╕Å All Cuisines</button>
-      <button class="filter-pill" data-filter="american">≡ƒìö Gourmet Burgers</button>
-      <button class="filter-pill" data-filter="italian">≡ƒìò Italian Pizza</button>
-      <button class="filter-pill" data-filter="japanese">≡ƒìú Japanese Sushi</button>
-      <button class="filter-pill" data-filter="indian">≡ƒì¢ Indian Spice</button>
-      <button class="filter-pill" data-filter="mexican">≡ƒî« Mexican Tacos</button>
+      <button class="filter-pill active" data-filter="all">🍽️ All Cuisines</button>
+      <button class="filter-pill" data-filter="american">🍔 Gourmet Burgers</button>
+      <button class="filter-pill" data-filter="italian">🍕 Italian Pizza</button>
+      <button class="filter-pill" data-filter="japanese">🍣 Japanese Sushi</button>
+      <button class="filter-pill" data-filter="indian">🍛 Indian Spice</button>
+      <button class="filter-pill" data-filter="mexican">🌮 Mexican Tacos</button>
     </div>
 
     <div class="row">
@@ -238,22 +238,28 @@
         grid.innerHTML += `
           <div class="col-md-6 col-xl-4" data-cuisine="${r.cuisine}">
             <a href="restaurant-detail.php?id=${r.id}" class="text-decoration-none">
-              <div class="restaurant-card">
-                <div class="card-img-wrapper">
-                  <img src="${r.image}" alt="${r.name}" loading="lazy">
-                  <button class="fav-btn" title="Add to favorites"><i class="bi bi-heart"></i></button>
-                  <span class="delivery-badge"><i class="bi bi-clock me-1"></i>${r.deliveryTime}</span>
-                </div>
-                <div class="p-3">
-                  <h5 class="text-dark mb-1">${r.name}</h5>
-                  <div class="restaurant-meta">
-                    <span class="rating fw-bold text-dark"><i class="bi bi-star-fill text-warning"></i> ${r.rating}</span>
-                    <span class="cuisine-tag">${r.cuisine}</span>
-                    <span class="fw-semibold" style="color:var(--primary-color)">$${r.deliveryFee === 0 ? 'Free' : r.deliveryFee.toFixed(2)} delivery</span>
+              <div class="restaurant-card bg-white border-0 shadow-sm rounded-4 overflow-hidden h-100 position-relative transition-all">
+                <div class="position-relative" style="height: 160px;">
+                  <img src="${r.image}" alt="${r.name}" class="w-100 h-100 object-fit-cover">
+                  <div class="position-absolute top-0 end-0 p-2">
+                    <button class="btn btn-light btn-sm rounded-circle shadow-sm fav-btn" style="width: 32px; height: 32px; padding: 0;" title="Add to favorites"><i class="bi bi-heart fs-6"></i></button>
                   </div>
-                  <p class="mt-2 mb-0 small text-muted">
-                    <i class="bi bi-geo-alt me-1"></i>${r.address}
-                  </p>
+                  <div class="position-absolute bottom-0 start-0 p-2">
+                    <div class="bg-white rounded-pill px-2 py-1 shadow-sm d-inline-flex align-items-center" style="font-size: 0.8rem; font-weight: 700;">
+                      <i class="bi bi-star-fill text-warning me-1"></i> ${r.rating} <span class="text-muted fw-normal ms-1">(${Math.floor(Math.random() * 400 + 100)})</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-3 pb-2">
+                  <h5 class="text-dark fw-bold mb-1">${r.name}</h5>
+                  <p class="text-muted mb-2 small">${r.cuisine.replace(',', ' • ')}</p>
+                  <div class="d-flex align-items-center text-muted small fw-medium mb-3">
+                    <span class="d-flex align-items-center me-3"><i class="bi bi-clock me-1 fs-6"></i> ${r.deliveryTime}</span>
+                    <span class="d-flex align-items-center"><i class="bi bi-bicycle me-1 fs-6"></i> $${r.deliveryFee.toFixed(2)} delivery</span>
+                  </div>
+                  <div class="rounded-3 px-2 py-1 small fw-bold d-inline-flex align-items-center" style="background-color: ${r.id % 2 === 0 ? '#FFE5E5' : '#E5F5E5'}; color: ${r.id % 2 === 0 ? '#D32F2F' : '#2E7D32'};">
+                    <i class="bi bi-tag-fill me-1"></i> ${r.id % 2 === 0 ? '20% OFF selected items' : 'Free delivery over $30'}
+                  </div>
                 </div>
               </div>
             </a>

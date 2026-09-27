@@ -57,9 +57,51 @@ const DEFAULT_RESTAURANTS = [
     reviews: [
       { id: 4, user: "Emily C.", rating: 5, date: "2026-08-14", comment: "Freshest sashimi in town. Always consistent." }
     ]
+  },
+  {
+    id: 4,
+    name: "Taj Mahal Curries",
+    cuisine: "Indian",
+    rating: 4.7,
+    deliveryTime: "25-40 min",
+    deliveryFee: 1.50,
+    address: "33 Lonsdale Street, Melbourne CBD",
+    image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&auto=format&fit=crop",
+    menu: [
+      { id: 401, category: "Mains", name: "Butter Chicken", price: 21.00, image: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500&auto=format&fit=crop", desc: "Creamy tomato curry with tender chicken tikka", available: true },
+      { id: 402, category: "Starters", name: "Garlic Naan", price: 4.50, image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&auto=format&fit=crop", desc: "Freshly baked tandoori bread with garlic butter", available: true }
+    ],
+    reviews: []
+  },
+  {
+    id: 5,
+    name: "El Camino Tacos",
+    cuisine: "Mexican",
+    rating: 4.5,
+    deliveryTime: "15-20 min",
+    deliveryFee: 4.00,
+    address: "12 Brunswick Street, Fitzroy",
+    image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&auto=format&fit=crop",
+    menu: [
+      { id: 501, category: "Mains", name: "Beef Birria Tacos", price: 19.00, image: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=500&auto=format&fit=crop", desc: "3 slow-cooked beef tacos with consomme dip", available: true }
+    ],
+    reviews: []
+  },
+  {
+    id: 6,
+    name: "The Green Bowl",
+    cuisine: "Healthy",
+    rating: 4.9,
+    deliveryTime: "10-25 min",
+    deliveryFee: 0.00,
+    address: "45 Swan Street, Richmond",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop",
+    menu: [
+      { id: 601, category: "Mains", name: "Quinoa Power Bowl", price: 17.50, image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&auto=format&fit=crop", desc: "Mixed greens, quinoa, avocado, roasted sweet potato", available: true }
+    ],
+    reviews: []
   }
 ];
-
 // Initialize RESTAURANTS with rich default data immediately
 let RESTAURANTS = JSON.parse(JSON.stringify(DEFAULT_RESTAURANTS));
 
